@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De la fuente al argumento (v1) - Objeto de Aprendizaje APA 7 & ODS</title>
+  <meta name="description" content="Recurso educativo accesible de Formación Transversal Comunicación y Redacción (IPLACEX): de la fuente al argumento, normas APA 7 y ODS de la ONU.">
+  <style>
+    :root {
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-surface-subtle: #f1f5f9;
+      --color-border: #cbd5e1;
+      --color-border-dark: #94a3b8;
+      --color-text: #0f172a;
+      --color-text-muted: #475569;
+      --color-primary: #1e3a8a;
+      --color-primary-hover: #172554;
+      --color-accent: #0284c7;
+      --color-success-bg: #ecfdf5;
+      --color-success-border: #059669;
+      --color-success-text: #064e3b;
+      --color-error-bg: #fef2f2;
+      --color-error-border: #dc2626;
+      --color-error-text: #7f1d1d;
+      --color-warning-bg: #fffbeb;
+      --color-warning-border: #d97706;
+      --color-warning-text: #78350f;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding: 1.5rem 1rem 4rem 1rem;
+    }
+
+    /* Skip link for keyboard accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 1000;
+      border-radius: 4px;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 3px solid #facc15;
+    }
+
+    :focus-visible {
+      outline: 3px solid #1e3a8a;
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header.app-header {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .badge-institution {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    h1.resource-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    p.resource-subtitle {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+    }
+
+    /* Accessible Progress Bar */
+    .progress-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--color-primary);
+      width: 16.66%;
+      transition: width 0.3s ease;
+    }
+
+    .scene-indicators {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      gap: 0.25rem;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .scene-dot-btn {
+      flex: 1;
+      min-width: 38px;
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 6px 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .scene-dot-btn.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+    }
+
+    .scene-dot-btn.completed {
+      border-color: var(--color-success-border);
+      color: var(--color-success-text);
+    }
+
+    /* Main Scene Card */
+    main.scene-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      margin-bottom: 1.5rem;
+    }
+
+    .scene-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2.scene-heading {
+      font-size: 1.5rem;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .callout {
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-subtle);
+    }
+
+    .callout-info {
+      border-color: #7dd3fc;
+      background: #f0f9ff;
+      color: #0c4a6e;
+    }
+
+    .callout-warning {
+      border-color: var(--color-warning-border);
+      background: var(--color-warning-bg);
+      color: var(--color-warning-text);
+    }
+
+    .callout-note {
+      font-style: italic;
+      color: var(--color-text-muted);
+    }
+
+    .tag-unverified {
+      display: inline-block;
+      background: #fef3c7;
+      border: 1px solid #d97706;
+      color: #92400e;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 4px;
+    }
+
+    /* Activity components */
+    .activity-container {
+      margin-top: 1.5rem;
+    }
+
+    .options-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .option-card {
+      background: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+
+    .option-card:hover {
+      border-color: var(--color-primary);
+      background-color: var(--color-surface-subtle);
+    }
+
+    .option-card.selected {
+      border-color: var(--color-primary);
+      background-color: #eff6ff;
+    }
+
+    .feedback-box {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .feedback-box.active {
+      display: block;
+    }
+
+    .feedback-success {
+      background: var(--color-success-bg);
+      border: 2px solid var(--color-success-border);
+      color: var(--color-success-text);
+    }
+
+    .feedback-error {
+      background: var(--color-error-bg);
+      border: 2px solid var(--color-error-border);
+      color: var(--color-error-text);
+    }
+
+    .hint-box {
+      background: #fefce8;
+      border: 1px dashed #ca8a04;
+      color: #713f12;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .hint-box.active {
+      display: block;
+    }
+
+    /* Actions Toolbar */
+    .nav-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      min-height: 42px;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      border-color: var(--color-border);
+      color: var(--color-text);
+    }
+    .btn-secondary:hover {
+      background: var(--color-surface-subtle);
+      border-color: var(--color-border-dark);
+    }
+
+    .btn-hint {
+      background: #fef9c3;
+      border-color: #facc15;
+      color: #854d0e;
+    }
+    .btn-hint:hover {
+      background: #fef08a;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Code & Comparison styling */
+    .quote-box {
+      background: var(--color-surface-subtle);
+      border-left: 4px solid var(--color-primary);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 768px) {
+      .comp-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .comp-card {
+      border: 2px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      background: var(--color-surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .comp-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .comp-badge-ineffective {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+    }
+
+    .comp-badge-effective {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #4ade80;
+    }
+
+    .ref-builder-item {
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .ref-builder-item strong {
+      color: var(--color-primary);
+    }
+
+    /* Checklist */
+    .rubric-item {
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      background: var(--color-surface);
+    }
+    .rubric-item label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .rubric-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--color-primary);
+    }
+
+    footer.app-footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 2rem;
+    }
+
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="container">
+    <header class="app-header" role="banner">
+      <div class="badge-institution">IPLACEX · Formación Transversal · Comunicación y Redacción</div>
+      <h1 class="resource-title">De la fuente al argumento: APA 7 y ODS</h1>
+      <p class="resource-subtitle">
+        Aprende a integrar fuentes institucionales de la ONU en tu carta de postulación a la beca en Barcelona dirigida a la <strong>Fundación de Técnicos Iberoamericanos</strong> según el Manual de Bibliotecas IPLACEX (2025).
+      </p>
+    </header>
+
+    <!-- Progress indicator -->
+    <section class="progress-section" aria-label="Progreso del recurso educativo">
+      <div class="progress-header">
+        <span id="progress-label">Escena 1 de 6: Orientación y Caso</span>
+        <span id="progress-percent" aria-live="polite">17%</span>
+      </div>
+      <div class="progress-track" role="progressbar" id="progress-bar" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100" aria-labelledby="progress-label">
+        <div class="progress-fill" id="progress-fill" style="width: 17%;"></div>
+      </div>
+      <nav class="scene-indicators" aria-label="Selector de escenas">
+        <button class="scene-dot-btn active" id="dot-1" onclick="goToScene(1)">1. Caso</button>
+        <button class="scene-dot-btn" id="dot-2" onclick="goToScene(2)">2. Clasificar</button>
+        <button class="scene-dot-btn" id="dot-3" onclick="goToScene(3)">3. Cita APA</button>
+        <button class="scene-dot-btn" id="dot-4" onclick="goToScene(4)">4. Referencia</button>
+        <button class="scene-dot-btn" id="dot-5" onclick="goToScene(5)">5. Argumento</button>
+        <button class="scene-dot-btn" id="dot-6" onclick="goToScene(6)">6. Taller</button>
+      </nav>
+    </section>
+
+    <!-- Main dynamic stage -->
+    <main class="scene-card" id="main-content" role="main" tabindex="-1">
+      <div id="scene-container">
+        <!-- Content will be rendered dynamically by JavaScript -->
+      </div>
+
+      <nav class="nav-toolbar" aria-label="Navegación entre escenas">
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary" id="btn-prev" onclick="changeScene(-1)">Anterior</button>
+          <button class="btn btn-secondary" id="btn-restart" onclick="restartResource()">Reiniciar</button>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-hint" id="btn-hint" onclick="toggleHint()">Mostrar Pista</button>
+          <button class="btn btn-primary" id="btn-next" onclick="changeScene(1)">Continuar</button>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="app-footer">
+      <p>Manual de Citación y Referencias APA (7.ª ed.) - Bibliotecas IPLACEX (2025) · Blackboard Learn</p>
+      <p>Diseño accesible: soporte de navegación por teclado, foco visual destacado y contraste validado WCAG AA.</p>
+    </footer>
+  </div>
+
+  <script>
+    // State management
+    let currentScene = 1;
+    const totalScenes = 6;
+    let hintVisible = false;
+
+    // Interactive state for Scene 2
+    let s2Answers = {};
+    const s2Items = [
+      { id: 'item1', text: 'https://www.un.org/sustainabledevelopment/es/cities/', correct: 'url', explanation: 'Es una URL suelta. Nunca debe ponerse en el cuerpo del texto para fundamentar una afirmación, ni reemplaza la cita o referencia.' },
+      { id: 'item2', text: '(Organización de las Naciones Unidas [ONU], 2023, párr. 4)', correct: 'cita', explanation: 'Es una CITA PARENTÉTICA en el texto. Se ubica en el párrafo entre paréntesis, indicando autor corporativo, sigla, año y párrafo.' },
+      { id: 'item3', text: 'Organización de las Naciones Unidas. (2023). Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles. Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/', correct: 'referencia', explanation: 'Es una REFERENCIA BIBLIOGRÁFICA completa según APA 7 (Manual IPLACEX 2025), ubicada en la sección final de Referencias.' }
+    ];
+
+    // Interactive state for Scene 3
+    let s3Selected = null;
+
+    // Interactive state for Scene 5
+    let s5Selected = null;
+
+    function renderScene(sceneNum) {
+      const container = document.getElementById('scene-container');
+      hintVisible = false;
+      document.getElementById('btn-hint').style.display = (sceneNum >= 2 && sceneNum <= 5) ? 'inline-flex' : 'none';
+      document.getElementById('btn-prev').disabled = (sceneNum === 1);
+      document.getElementById('btn-next').innerText = (sceneNum === totalScenes) ? 'Finalizar' : 'Continuar';
+
+      // Update progress
+      const pct = Math.round((sceneNum / totalScenes) * 100);
+      document.getElementById('progress-percent').innerText = pct + '%';
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-bar').setAttribute('aria-valuenow', pct);
+
+      const sceneNames = [
+        "Orientación y Caso de la Beca",
+        "Clasificar Cita, Referencia y URL",
+        "Seleccionar Cita Institucional APA 7",
+        "Construir la Referencia Bibliográfica",
+        "Comparar Fragmentos y Argumentación ODS",
+        "Taller Integrador y Autoevaluación"
+      ];
+      document.getElementById('progress-label').innerText = `Escena ${sceneNum} de ${totalScenes}: ${sceneNames[sceneNum - 1]}`;
+
+      // Update dot buttons
+      for (let i = 1; i <= totalScenes; i++) {
+        const dot = document.getElementById('dot-' + i);
+        if (dot) {
+          dot.className = 'scene-dot-btn' + (i === sceneNum ? ' active' : (i < sceneNum ? ' completed' : ''));
+        }
+      }
+
+      if (sceneNum === 1) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 1 · CONTEXTO DEL EXAMEN FINAL</span>
+          <h2 class="scene-heading">La Carta de Beca en Barcelona y el Marco ODS</h2>
+          
+          <div class="callout callout-info">
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Propósito de este recurso pedagógico:</h3>
+            <p>Superarás los dos errores más frecuentes en la redacción académica: <strong>confundir cita con referencia o pegar únicamente una URL</strong>, y redactar citas "isla" que no se articulan con tus argumentos técnicos.</p>
+          </div>
+
+          <h3 style="font-size: 1.15rem; margin-top: 1.25rem; color: var(--color-primary);">El Caso Real de tu Examen:</h3>
+          <p style="margin-top: 0.5rem;">
+            Debes redactar una <strong>carta formal de postulación</strong> a una beca internacional en Barcelona, dirigida al Comité de Selección de la <strong>«Fundación de Técnicos Iberoamericanos»</strong>.
+          </p>
+          
+          <div style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 6px; padding: 1.25rem; margin: 1rem 0;">
+            <h4 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">Requisitos evaluados en Blackboard:</h4>
+            <ul style="padding-left: 1.25rem; line-height: 1.7;">
+              <li><strong>Destinatario formal:</strong> Fundación de Técnicos Iberoamericanos.</li>
+              <li><strong>Dos argumentos técnicos:</strong> Fundamentados en un Objetivo de Desarrollo Sostenible (ODS de la ONU).</li>
+              <li><strong>Cita institucional APA 7:</strong> Extraída de la página oficial de la ONU e integrada de manera pertinente en el texto.</li>
+              <li><strong>Referencia bibliográfica completa:</strong> Elaborada al final de acuerdo con el Manual de Bibliotecas IPLACEX (2025).</li>
+            </ul>
+          </div>
+
+          <div class="callout callout-warning">
+            <strong>Aviso metodológico:</strong> Las citas y referencias de este recurso utilizan marcadores rotulados <span class="tag-unverified">Pendiente de verificar por docente</span> para que el profesorado corrobore la vigencia de la página web institucional antes de su publicación definitiva.
+          </div>
+        `;
+      } else if (sceneNum === 2) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 2 · ACTIVIDAD INTERACTIVA</span>
+          <h2 class="scene-heading">Clasificar: Cita en el texto, Referencia o URL</h2>
+          <p>Identifica cada elemento para evitar el error de copiar y pegar enlaces en medio de tus párrafos.</p>
+
+          <div class="activity-container">
+            ${s2Items.map((item, idx) => `
+              <div style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+                <p style="font-family: var(--font-mono); font-size: 0.95rem; margin-bottom: 0.75rem; word-break: break-all;"><strong>Elemento ${idx + 1}:</strong> "${item.text}"</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button class="btn btn-secondary ${s2Answers[item.id] === 'cita' ? 'btn-primary' : ''}" onclick="selectS2('${item.id}', 'cita')">Cita en el texto</button>
+                  <button class="btn btn-secondary ${s2Answers[item.id] === 'referencia' ? 'btn-primary' : ''}" onclick="selectS2('${item.id}', 'referencia')">Referencia bibliográfica</button>
+                  <button class="btn btn-secondary ${s2Answers[item.id] === 'url' ? 'btn-primary' : ''}" onclick="selectS2('${item.id}', 'url')">URL suelta</button>
+                </div>
+                <div id="fb-s2-${item.id}" class="feedback-box" style="margin-top: 0.75rem;"></div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div id="hint-content" class="hint-box">
+            <strong>Pista docente:</strong> La cita va dentro del párrafo con paréntesis o en la redacción; la referencia va en la lista final con autor, fecha, título en cursiva y enlace; la URL suelta es solo la dirección web técnica sin datos de autoría.
+          </div>
+        `;
+      } else if (sceneNum === 3) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 3 · REGLAS APA 7 (MANUAL IPLACEX 2025)</span>
+          <h2 class="scene-heading">Seleccionar la Cita Institucional Correcta</h2>
+          <p>En páginas web de la ONU, el autor es corporativo: <strong>Organización de las Naciones Unidas [ONU]</strong> en primera mención. En citas textuales de páginas web sin número de página, se indica el párrafo (ej. <code>párr. 4</code>).</p>
+
+          <div class="activity-container">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem;">¿Cuál de las siguientes opciones cita correctamente la fuente en el cuerpo de la carta?</h3>
+            <div class="options-grid">
+              <button class="option-card ${s3Selected === 1 ? 'selected' : ''}" onclick="selectS3(1)">
+                <strong>Opción A:</strong> "Como señala la Organización de las Naciones Unidas [ONU] (2023, párr. 4), la gestión eficiente de residuos en urbes requiere técnicos capacitados..."
+              </button>
+              <button class="option-card ${s3Selected === 2 ? 'selected' : ''}" onclick="selectS3(2)">
+                <strong>Opción B:</strong> "La gestión eficiente de residuos en urbes requiere técnicos capacitados (ver https://www.un.org/sustainabledevelopment/es/cities/)."
+              </button>
+              <button class="option-card ${s3Selected === 3 ? 'selected' : ''}" onclick="selectS3(3)">
+                <strong>Opción C:</strong> "Según el artículo 'Objetivo 11' (2023), se necesitan técnicos en Barcelona..."
+              </button>
+            </div>
+            <div id="fb-s3" class="feedback-box"></div>
+          </div>
+
+          <div id="hint-content" class="hint-box">
+            <strong>Pista docente:</strong> Descarta inmediatamente cualquier opción que inserte una dirección "https://" dentro del texto. En APA 7 nunca se cita por URL ni por título cuando la institución es claramente la autora.
+          </div>
+        `;
+      } else if (sceneNum === 4) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 4 · CONSTRUCCIÓN DE LA REFERENCIA</span>
+          <h2 class="scene-heading">Los 4 Elementos Canónicos de la Referencia APA 7</h2>
+          <p>Toda referencia de página web institucional responde a cuatro preguntas fundamentales:</p>
+
+          <div style="margin: 1.25rem 0;">
+            <div class="ref-builder-item">
+              <strong>1. ¿Quién? (Autor corporativo):</strong> Organización de las Naciones Unidas.
+              <div style="font-size: 0.85rem; color: var(--color-text-muted);">Nombre completo oficial terminado en punto.</div>
+            </div>
+            <div class="ref-builder-item">
+              <strong>2. ¿Cuándo? (Fecha):</strong> (2023). <span class="tag-unverified">Pendiente de verificar por docente</span>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted);">Año entre paréntesis seguido de punto. Si la página no tiene fecha visible, se usa <em>(s.f.)</em>.</div>
+            </div>
+            <div class="ref-builder-item">
+              <strong>3. ¿Qué? (Título de la página web):</strong> <em>Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles.</em>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted);">En cursiva (itálica), seguido de punto.</div>
+            </div>
+            <div class="ref-builder-item">
+              <strong>4. ¿Dónde? (Sitio web y URL):</strong> Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/
+              <div style="font-size: 0.85rem; color: var(--color-text-muted);">Nombre del sitio si difiere del autor, y la URL directa sin punto final para mantener activo el hipervínculo.</div>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <strong>Resultado final consolidado en la sección "Referencias":</strong><br>
+            <p style="font-family: var(--font-mono); font-size: 0.9rem; margin-top: 0.5rem; background: #fff; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 4px;">
+              Organización de las Naciones Unidas. (2023). <em>Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles</em>. Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/
+            </p>
+          </div>
+
+          <div id="hint-content" class="hint-box">
+            <strong>Pista docente:</strong> En APA 7 ya NO se utiliza la frase "Recuperado de" antes del enlace, a menos que se trate de un recurso que cambia continuamente y exija fecha de consulta.
+          </div>
+        `;
+      } else if (sceneNum === 5) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 5 · ANÁLISIS RETÓRICO Y ARGUMENTACIÓN</span>
+          <h2 class="scene-heading">¿Dónde la fuente del ODS fundamenta el argumento?</h2>
+          <p>Compara estos dos fragmentos de postulantes a la <strong>Fundación de Técnicos Iberoamericanos</strong>:</p>
+
+          <div class="comp-grid">
+            <div class="comp-card">
+              <div>
+                <span class="comp-badge comp-badge-ineffective">FRAGMENTO A · CITA DECORATIVA ("ISLA")</span>
+                <p style="font-style: italic; font-size: 0.95rem; margin-top: 0.5rem;">
+                  "Estimados miembros de la Fundación: Me dirijo a ustedes porque deseo ganar la beca en Barcelona. Como señala la Organización de las Naciones Unidas [ONU] (2023), 'las ciudades representan más del 60 % del uso de recursos'. Por eso Barcelona es una ciudad hermosa y quiero visitarla para estudiar."
+                </p>
+              </div>
+              <button class="btn btn-secondary ${s5Selected === 'A' ? 'btn-primary' : ''}" style="margin-top: 1rem;" onclick="selectS5('A')">Evaluar Fragmento A</button>
+            </div>
+
+            <div class="comp-card">
+              <div>
+                <span class="comp-badge comp-badge-effective">FRAGMENTO B · CITA INTEGRADA Y FUNDAMENTADA</span>
+                <p style="font-style: italic; font-size: 0.95rem; margin-top: 0.5rem;">
+                  "Estimado Comité de Selección: Postulo a la beca técnica en Barcelona motivado por la necesidad de descarbonizar el transporte local. Según la Organización de las Naciones Unidas [ONU] (2023), lograr ciudades sostenibles (ODS 11) exige modernizar la infraestructura energética crítica (párr. 4). La formación en Barcelona me otorgará metodologías prácticas en redes inteligentes para transferirlas a los municipios de mi región."
+                </p>
+              </div>
+              <button class="btn btn-secondary ${s5Selected === 'B' ? 'btn-primary' : ''}" style="margin-top: 1rem;" onclick="selectS5('B')">Evaluar Fragmento B</button>
+            </div>
+          </div>
+
+          <div id="fb-s5" class="feedback-box"></div>
+
+          <div id="hint-content" class="hint-box">
+            <strong>Pista docente:</strong> Fíjate en cuál de los dos textos el estudiante utiliza los datos de la ONU como base para justificar por qué la beca técnica en Barcelona resolverá una necesidad concreta en su comunidad.
+          </div>
+        `;
+      } else if (sceneNum === 6) {
+        container.innerHTML = `
+          <span class="scene-badge">ESCENA 6 · TALLER INTEGRADOR Y AUTOEVALUACIÓN</span>
+          <h2 class="scene-heading">Pauta de Autoevaluación para tu Carta de Beca</h2>
+          <p>Usa esta lista de cotejo antes de entregar tu examen final en Blackboard para garantizar el cumplimiento de los estándares de APA 7 y comunicación formal:</p>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="rubric-item">
+              <label>
+                <input type="checkbox" onchange="checkRubric()">
+                <span>
+                  <strong>1. Destinatario y Adecuación Formal:</strong>
+                  <br><span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-muted);">La carta está dirigida a la «Fundación de Técnicos Iberoamericanos» con tono formal, profesional y respetuoso.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="rubric-item">
+              <label>
+                <input type="checkbox" onchange="checkRubric()">
+                <span>
+                  <strong>2. Vínculo Explícito con ODS de la ONU:</strong>
+                  <br><span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-muted);">Presentas dos argumentos técnicos vinculados claramente con una meta u objetivo de desarrollo sostenible.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="rubric-item">
+              <label>
+                <input type="checkbox" onchange="checkRubric()">
+                <span>
+                  <strong>3. Cita Institucional Correcta (sin URL en el texto):</strong>
+                  <br><span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-muted);">Utilizas autor corporativo, año o (s.f.) y número de párrafo en caso de cita directa, sin incluir enlaces web dentro del párrafo.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="rubric-item">
+              <label>
+                <input type="checkbox" onchange="checkRubric()">
+                <span>
+                  <strong>4. Articulación Fuente-Argumento:</strong>
+                  <br><span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-muted);">La cita sustenta tu argumento; explicas cómo la estancia en Barcelona te permitirá aplicar soluciones técnicas.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="rubric-item">
+              <label>
+                <input type="checkbox" onchange="checkRubric()">
+                <span>
+                  <strong>5. Referencia Bibliográfica Completa (Manual IPLACEX 2025):</strong>
+                  <br><span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-muted);">Autor. (Año o s.f.). <em>Título en cursiva</em>. Sitio web. URL activa al final del documento.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div id="rubric-summary" class="callout callout-info" style="margin-top: 1.25rem;">
+            Marca los 5 criterios anteriores para comprobar el estado de preparación de tu carta de postulación.
+          </div>
+        `;
+      }
+    }
+
+    function changeScene(delta) {
+      const next = currentScene + delta;
+      if (next >= 1 && next <= totalScenes) {
+        goToScene(next);
+      }
+    }
+
+    function goToScene(target) {
+      currentScene = target;
+      renderScene(currentScene);
+      document.getElementById('main-content').focus();
+    }
+
+    function restartResource() {
+      if (confirm("¿Deseas reiniciar el recurso desde la Escena 1?")) {
+        s2Answers = {};
+        s3Selected = null;
+        s5Selected = null;
+        goToScene(1);
+      }
+    }
+
+    function toggleHint() {
+      hintVisible = !hintVisible;
+      const hint = document.getElementById('hint-content');
+      if (hint) {
+        hint.className = hintVisible ? 'hint-box active' : 'hint-box';
+        document.getElementById('btn-hint').innerText = hintVisible ? 'Ocultar Pista' : 'Mostrar Pista';
+      }
+    }
+
+    function selectS2(itemId, category) {
+      s2Answers[itemId] = category;
+      const item = s2Items.find(i => i.id === itemId);
+      const fb = document.getElementById('fb-s2-' + itemId);
+      const isCorrect = (category === item.correct);
+
+      fb.className = 'feedback-box active ' + (isCorrect ? 'feedback-success' : 'feedback-error');
+      fb.innerHTML = `<strong>${isCorrect ? '¡Correcto!' : 'Respuesta a revisar:'}</strong> ${item.explanation}`;
+      renderScene(2);
+      document.getElementById('fb-s2-' + itemId).className = 'feedback-box active ' + (isCorrect ? 'feedback-success' : 'feedback-error');
+      document.getElementById('fb-s2-' + itemId).innerHTML = `<strong>${isCorrect ? '¡Correcto!' : 'Respuesta a revisar:'}</strong> ${item.explanation}`;
+    }
+
+    function selectS3(opt) {
+      s3Selected = opt;
+      const fb = document.getElementById('fb-s3');
+      fb.className = 'feedback-box active';
+      if (opt === 1) {
+        fb.className += ' feedback-success';
+        fb.innerHTML = '<strong>¡Excelente elección!</strong> Es una Cita Narrativa correcta: autor institucional completo con sigla entre corchetes en primera mención [ONU], año entre paréntesis y número de párrafo.';
+      } else if (opt === 2) {
+        fb.className += ' feedback-error';
+        fb.innerHTML = '<strong>Error común:</strong> Nunca coloques la dirección web "https://" dentro del párrafo o entre paréntesis. La URL pertenece únicamente a la lista final de referencias.';
+      } else {
+        fb.className += ' feedback-error';
+        fb.innerHTML = '<strong>Inadecuado:</strong> En APA 7 solo se cita por el título cuando no hay autor personal ni corporativo. En este caso el autor es la Organización de las Naciones Unidas.';
+      }
+      renderScene(3);
+      const fbUpdated = document.getElementById('fb-s3');
+      fbUpdated.className = 'feedback-box active ' + (opt === 1 ? 'feedback-success' : 'feedback-error');
+      fbUpdated.innerHTML = (opt === 1) 
+        ? '<strong>¡Excelente elección!</strong> Es una Cita Narrativa correcta: autor institucional completo con sigla entre corchetes en primera mención [ONU], año entre paréntesis y número de párrafo.'
+        : (opt === 2 ? '<strong>Error común:</strong> Nunca coloques la URL en el texto.' : '<strong>Inadecuado:</strong> Cita por el autor corporativo, no por el título.');
+    }
+
+    function selectS5(choice) {
+      s5Selected = choice;
+      renderScene(5);
+      const fb = document.getElementById('fb-s5');
+      fb.className = 'feedback-box active';
+      if (choice === 'B') {
+        fb.className += ' feedback-success';
+        fb.innerHTML = '<strong>¡Correcto! El Fragmento B articula sólidamente la fuente:</strong> La cita de la ONU (ODS 11) actúa como diagnóstico riguroso de una necesidad técnica, y el postulante explica de inmediato cómo la estancia en Barcelona le proporcionará las herramientas para solventar esa necesidad en su comunidad.';
+      } else {
+        fb.className += ' feedback-error';
+        fb.innerHTML = '<strong>Atención al Fragmento A:</strong> Presenta una "cita isla". El estudiante arroja el dato de la ONU pero luego habla de sus deseos personales de viajar a Barcelona, sin explicar la relevancia técnica de la beca ni cómo aplicará esos aprendizajes.';
+      }
+    }
+
+    function checkRubric() {
+      const checkboxes = document.querySelectorAll('.rubric-item input[type="checkbox"]');
+      let checkedCount = 0;
+      checkboxes.forEach(cb => { if (cb.checked) checkedCount++; });
+      const summary = document.getElementById('rubric-summary');
+      if (checkedCount === 5) {
+        summary.className = 'callout callout-info';
+        summary.style.background = 'var(--color-success-bg)';
+        summary.style.borderColor = 'var(--color-success-border)';
+        summary.style.color = 'var(--color-success-text)';
+        summary.innerHTML = '<strong>¡Felicitaciones! Has verificado los 5 criterios esenciales:</strong> Tu carta de postulación a la Fundación de Técnicos Iberoamericanos cumple con los lineamientos del Manual de Bibliotecas IPLACEX (2025) y los requisitos del examen final.';
+      } else {
+        summary.className = 'callout callout-info';
+        summary.innerHTML = `Has verificado <strong>${checkedCount} de 5 criterios</strong>. Asegúrate de revisar los puntos pendientes en tu borrador antes del envío final.`;
+      }
+    }
+
+    // Keyboard navigation (Left/Right arrows when not in input)
+    document.addEventListener('keydown', function(e) {
+      if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        if (e.key === 'ArrowRight' && currentScene < totalScenes) {
+          changeScene(1);
+        } else if (e.key === 'ArrowLeft' && currentScene > 1) {
+          changeScene(-1);
+        }
+      }
+    });
+
+    // Initial render
+    renderScene(1);
+  </script>
+</body>
+</html>

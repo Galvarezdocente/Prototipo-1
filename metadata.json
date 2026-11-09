@@ -1,0 +1,6 @@
+{
+  "name": "De la fuente al argumento - Recurso Educativo APA 7 & ODS",
+  "description": "Recurso educativo interactivo y accesible para distinguir cita de referencia bibliográfica, integrar fuentes de los ODS de la ONU en la carta de postulación a la beca en Barcelona y aplicar normas APA 7 (Manual IPLACEX 2025).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
