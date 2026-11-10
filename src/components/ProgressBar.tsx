@@ -17,13 +17,13 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   const currentMeta = SCENE_METADATA.find((s) => s.id === currentScene);
 
   return (
-    <section className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm mb-6" aria-label="Progreso formativo">
+    <section className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs mb-6" aria-label="Progreso formativo">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">
-            Escena {currentScene} de 6
+          <span className="text-xs font-bold uppercase tracking-wider text-[#00a3e0]">
+            Escena {currentScene} de 6 · Trayecto Autoinstructivo
           </span>
-          <h2 className="text-base sm:text-lg font-bold text-slate-900">
+          <h2 className="text-base sm:text-lg font-bold text-[#15284f]">
             {currentMeta?.title}
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
@@ -32,7 +32,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         </div>
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
           <span className="text-xs text-slate-500 font-medium">Avance:</span>
-          <span className="text-sm font-bold text-indigo-900 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded" aria-live="polite">
+          <span className="text-sm font-bold text-[#15284f] bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded" aria-live="polite">
             {percentage}%
           </span>
         </div>
@@ -48,7 +48,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         aria-label={`Progreso del recurso: ${percentage}%`}
       >
         <div
-          className="h-full bg-indigo-600 transition-all duration-300 ease-out"
+          className="h-full bg-[#15284f] transition-all duration-300 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -65,11 +65,11 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
               role="tab"
               aria-selected={isActive}
               onClick={() => onSelectScene(scene.id as SceneId)}
-              className={`p-2 rounded-lg text-left text-xs transition-all border flex flex-col justify-between min-h-[56px] focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+              className={`p-2 rounded-lg text-left text-xs transition-all border flex flex-col justify-between min-h-[58px] focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
                 isActive
-                  ? 'bg-indigo-50 border-indigo-500 text-indigo-950 font-semibold ring-1 ring-indigo-500'
+                  ? 'bg-sky-50 border-[#15284f] text-[#15284f] font-semibold ring-1 ring-[#15284f]'
                   : isCompleted
-                  ? 'bg-emerald-50/60 border-emerald-300 text-emerald-950 hover:bg-emerald-100/60'
+                  ? 'bg-emerald-50/70 border-emerald-300 text-emerald-950 hover:bg-emerald-100/70'
                   : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -83,7 +83,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                   </span>
                 )}
                 {isActive && !isCompleted && (
-                  <span className="text-[10px] font-bold text-indigo-700">
+                  <span className="text-[10px] font-bold text-[#15284f]">
                     Actual
                   </span>
                 )}

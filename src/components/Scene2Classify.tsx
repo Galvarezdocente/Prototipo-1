@@ -19,7 +19,6 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
     const updated = { ...userAnswers, [itemId]: category };
     setUserAnswers(updated);
 
-    // Check if all answered correctly
     const allAnswered = CLASSIFICATION_ITEMS.every((item) => updated[item.id] !== undefined);
     const allCorrect = CLASSIFICATION_ITEMS.every((item) => updated[item.id] === item.correctCategory);
     if (allAnswered && allCorrect) {
@@ -39,34 +38,45 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="border-b border-slate-200 pb-4">
-        <div className="text-xs font-bold uppercase tracking-wider text-indigo-700">
+        <div className="text-xs font-bold uppercase tracking-wider text-[#00a3e0]">
           Escena 2 · Actividad Diagnóstica y de Clasificación
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#15284f] mt-1 tracking-tight">
           Clasificar: Cita en el texto vs. Referencia bibliográfica vs. URL suelta
         </h2>
-        <p className="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
-          Para no cometer el error de pegar direcciones web en medio de tus argumentos, clasifica cada elemento presentado a continuación según corresponda en el estándar APA 7 (Manual IPLACEX, 2025).
-        </p>
+      </div>
+
+      {/* Autonomous Learning Guide Box */}
+      <div className="bg-[#f0f7ff] border border-sky-200 rounded-xl p-4 text-xs space-y-1.5">
+        <strong className="block text-[#15284f] font-bold text-sm">
+          📋 Instrucciones de Aprendizaje Autónomo:
+        </strong>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 text-slate-700">
+          <div><strong>🎯 Qué hacer:</strong> Distingue cada uno de los 6 elementos del ejercicio según las normas APA 7 de IPLACEX.</div>
+          <div><strong>📝 Cómo responder:</strong> Haz clic en uno de los 3 botones ('Cita en el texto', 'Referencia bibliográfica' o 'URL suelta') bajo cada ítem.</div>
+          <div><strong>💡 Cómo consultar pistas:</strong> Pulsa el botón 'Solicitar Pista 💡' al final de la actividad si tienes dudas.</div>
+          <div><strong>🔍 Cómo revisar:</strong> Tras elegir, leerás inmediatamente la retroalimentación formativa y podrás pulsar 'Reintentar actividad ↺'.</div>
+        </div>
       </div>
 
       {/* Conceptual Summary Banner */}
       <div className="grid sm:grid-cols-3 gap-3 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
         <div className="p-2.5 rounded bg-white border border-slate-200">
-          <strong className="text-indigo-900 block font-semibold mb-1">Cita en el texto</strong>
+          <strong className="text-[#15284f] block font-semibold mb-1">Cita en el texto</strong>
           <span className="text-slate-600">
             Acredita autor y año dentro del párrafo (parentética o narrativa). Nunca lleva URL.
           </span>
         </div>
         <div className="p-2.5 rounded bg-white border border-slate-200">
-          <strong className="text-indigo-900 block font-semibold mb-1">Referencia bibliográfica</strong>
+          <strong className="text-[#15284f] block font-semibold mb-1">Referencia bibliográfica</strong>
           <span className="text-slate-600">
             Ficha completa al final en 'Referencias': ¿Quién? ¿Cuándo? ¿Qué? ¿Dónde?
           </span>
         </div>
         <div className="p-2.5 rounded bg-white border border-slate-200">
-          <strong className="text-indigo-900 block font-semibold mb-1">URL suelta</strong>
+          <strong className="text-[#15284f] block font-semibold mb-1">URL suelta</strong>
           <span className="text-slate-600">
             Dirección electrónica aislada. No es cita ni referencia válida por sí misma.
           </span>
@@ -109,7 +119,7 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
                         : 'bg-rose-100 text-rose-800 border border-rose-300'
                     }`}
                   >
-                    {isCorrect ? '✓ Correcto' : '✗ A revisar'}
+                    {isCorrect ? '✓ Clasificación Correcta' : '✗ Revisión Requerida'}
                   </span>
                 )}
               </div>
@@ -118,9 +128,9 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
               <div className="flex flex-wrap gap-2 pt-1" role="group" aria-label={`Clasificar elemento ${index + 1}`}>
                 <button
                   onClick={() => handleSelect(item.id, 'cita')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
                     selected === 'cita'
-                      ? 'bg-indigo-700 text-white border-indigo-700 shadow-sm'
+                      ? 'bg-[#15284f] text-white border-[#15284f] shadow-xs'
                       : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
                   }`}
                 >
@@ -128,9 +138,9 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
                 </button>
                 <button
                   onClick={() => handleSelect(item.id, 'referencia')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
                     selected === 'referencia'
-                      ? 'bg-indigo-700 text-white border-indigo-700 shadow-sm'
+                      ? 'bg-[#15284f] text-white border-[#15284f] shadow-xs'
                       : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
                   }`}
                 >
@@ -138,9 +148,9 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
                 </button>
                 <button
                   onClick={() => handleSelect(item.id, 'url')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
                     selected === 'url'
-                      ? 'bg-indigo-700 text-white border-indigo-700 shadow-sm'
+                      ? 'bg-[#15284f] text-white border-[#15284f] shadow-xs'
                       : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
                   }`}
                 >
@@ -159,7 +169,7 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
                   aria-live="polite"
                 >
                   <p>
-                    <strong>{isCorrect ? 'Retroalimentación docente: ' : 'Orientación de corrección: '}</strong>
+                    <strong>{isCorrect ? '✓ Explicación de acierto: ' : '✗ Orientación de corrección: '}</strong>
                     {item.explanation}
                   </p>
                 </div>
@@ -171,17 +181,17 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
 
       {/* Hint & Helper Section */}
       {showHint && (
-        <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-4 text-xs sm:text-sm text-yellow-950 space-y-2">
-          <strong className="block text-yellow-900 font-bold">💡 Pista pedagógica del docente:</strong>
+        <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 text-xs sm:text-sm text-amber-950 space-y-2">
+          <strong className="block text-amber-900 font-bold">💡 Pista pedagógica del docente:</strong>
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              <strong>Para identificar la Cita:</strong> Busca paréntesis dentro de una oración o palabras de enlace discursivo (<em>"Según..."</em>, <em>"De acuerdo con..."</em>) que señalen autor y año.
+              <strong>Cita en el texto:</strong> Se encuentra dentro del párrafo, casi siempre entre paréntesis o integrada al flujo de la oración con el autor y el año. <em>Jamás contiene una URL</em>.
             </li>
             <li>
-              <strong>Para identificar la Referencia:</strong> Busca la ficha canónica de 4 datos que incluye el título de la página en <em>cursiva</em> y el enlace al final.
+              <strong>Referencia bibliográfica:</strong> Ficha técnica completa al final en la sección 'Referencias'. Incluye autor, año, título en cursiva y URL.
             </li>
             <li>
-              <strong>Para identificar la URL suelta:</strong> Es únicamente la dirección electrónica de internet (inicia con <code>http</code> o <code>www</code>) desprovista de autoría y fecha.
+              <strong>URL suelta:</strong> Es únicamente la dirección técnica que inicia con <code>http://</code> o <code>https://</code>.
             </li>
           </ul>
         </div>
@@ -196,13 +206,13 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
         <div className="flex gap-2">
           <button
             onClick={() => setShowHint(!showHint)}
-            className="px-3.5 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-900 border border-yellow-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-3.5 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             {showHint ? 'Ocultar Pista' : 'Solicitar Pista 💡'}
           </button>
           <button
             onClick={handleReset}
-            className="px-3.5 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-3.5 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             Reintentar actividad ↺
           </button>
@@ -213,16 +223,16 @@ export const Scene2Classify: React.FC<Scene2ClassifyProps> = ({
       <div className="pt-2 flex justify-between items-center border-t border-slate-200">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
         >
           ← Volver a Escena 1
         </button>
 
         <button
           onClick={onContinue}
-          className={`px-5 py-2 font-semibold rounded-lg text-sm transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+          className={`px-5 py-2 font-semibold rounded-lg text-sm transition-colors shadow-xs focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
             correctCount === CLASSIFICATION_ITEMS.length
-              ? 'bg-indigo-700 hover:bg-indigo-800 text-white'
+              ? 'bg-[#15284f] hover:bg-[#1e3a8a] text-white'
               : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
           }`}
         >

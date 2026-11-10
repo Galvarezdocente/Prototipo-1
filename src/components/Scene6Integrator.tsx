@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { INTEGRATOR_CASE, RUBRIC_CRITERIA } from '../data/educationalContent';
+import { INTEGRATOR_CASE, RUBRIC_CRITERIA, INSTITUTIONAL_LINKS } from '../data/educationalContent';
 
 interface Scene6IntegratorProps {
   onComplete: () => void;
@@ -21,8 +21,8 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
     const updated = { ...checkedCriteria, [id]: !checkedCriteria[id] };
     setCheckedCriteria(updated);
 
-    const checkedCount = Object.values(updated).filter(Boolean).length;
-    if (checkedCount === RUBRIC_CRITERIA.length) {
+    const count = Object.values(updated).filter(Boolean).length;
+    if (count === RUBRIC_CRITERIA.length) {
       onComplete();
     }
   };
@@ -40,27 +40,38 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="border-b border-slate-200 pb-4">
-        <div className="text-xs font-bold uppercase tracking-wider text-indigo-700">
+        <div className="text-xs font-bold uppercase tracking-wider text-[#00a3e0]">
           Escena 6 · Taller Integrador y Autoevaluación Docente
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#15284f] mt-1 tracking-tight">
           Corrección de Caso, Borrador Libre y Pauta de Cotejo
         </h2>
-        <p className="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
-          En este espacio pondrás a prueba todo lo aprendido: diagnosticarás errores típicos de redacción, ensayarás tu propio argumento técnico y verificarás el cumplimiento de tu carta con la rúbrica oficial de Blackboard.
-        </p>
+      </div>
+
+      {/* Autonomous Learning Guide Box */}
+      <div className="bg-[#f0f7ff] border border-sky-200 rounded-xl p-4 text-xs space-y-1.5">
+        <strong className="block text-[#15284f] font-bold text-sm">
+          📋 Instrucciones de Aprendizaje Autónomo:
+        </strong>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 text-slate-700">
+          <div><strong>🎯 Qué hacer:</strong> Completa los tres pasos del taller: 1) Diagnosticar fallas; 2) Ensayar tu párrafo; 3) Autoevaluar con la pauta docente.</div>
+          <div><strong>📝 Cómo responder:</strong> Navega por las 3 pestañas superiores ('Diagnóstico', 'Redacción' y 'Pauta de Cotejo'). Marca cada casilla según tu texto.</div>
+          <div><strong>💡 Cómo consultar pistas:</strong> En la pestaña 1 pulsa 'Ver Modelo Corregido Docente' para contrastar con una redacción modelo.</div>
+          <div><strong>🔍 Cómo revisar:</strong> No hay calificación automática engañosa en la redacción libre; tú evalúas tu propio borrador mediante los 5 criterios de la rúbrica oficial.</div>
+        </div>
       </div>
 
       {/* Tabs navigation */}
-      <div className="flex border-b border-slate-200 gap-2" role="tablist" aria-label="Secciones del taller integrador">
+      <div className="flex border-b border-slate-200 gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Secciones del taller integrador">
         <button
           role="tab"
           aria-selected={activeTab === 'diagnostico'}
           onClick={() => setActiveTab('diagnostico')}
-          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
             activeTab === 'diagnostico'
-              ? 'border-indigo-600 text-indigo-900'
+              ? 'border-[#15284f] text-[#15284f]'
               : 'border-transparent text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -70,9 +81,9 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
           role="tab"
           aria-selected={activeTab === 'redactor'}
           onClick={() => setActiveTab('redactor')}
-          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
             activeTab === 'redactor'
-              ? 'border-indigo-600 text-indigo-900'
+              ? 'border-[#15284f] text-[#15284f]'
               : 'border-transparent text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -82,9 +93,9 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
           role="tab"
           aria-selected={activeTab === 'rubrica'}
           onClick={() => setActiveTab('rubrica')}
-          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+          className={`pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
             activeTab === 'rubrica'
-              ? 'border-indigo-600 text-indigo-900'
+              ? 'border-[#15284f] text-[#15284f]'
               : 'border-transparent text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -95,7 +106,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
       {/* Tab 1: Diagnóstico */}
       {activeTab === 'diagnostico' && (
         <div className="space-y-5">
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3">
             <span className="text-xs font-bold uppercase text-rose-700 tracking-wider">
               Borrador con Errores Típicos
             </span>
@@ -124,7 +135,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
             <div className="pt-2 flex justify-between items-center">
               <button
                 onClick={() => setShowModelSolution(!showModelSolution)}
-                className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+                className="px-4 py-2 bg-sky-50 hover:bg-sky-100 text-[#15284f] border border-sky-200 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
               >
                 {showModelSolution ? 'Ocultar Modelo Corregido' : 'Ver Modelo Corregido Docente ✨'}
               </button>
@@ -135,7 +146,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
             <div className="bg-emerald-50/70 border border-emerald-300 rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">
-                  Modelo Académico Sobresaliente (APA 7 - IPLACEX 2025)
+                  Modelo Académico Sobresaliente (Manual IPLACEX 2025 · ODS 4)
                 </span>
                 <span className="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded font-semibold">
                   Alineado con Blackboard
@@ -145,7 +156,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
                 {INTEGRATOR_CASE.correctedModel}
               </div>
               <p className="text-xs text-emerald-900">
-                Observa cómo el destinatario es formal, la cita de la ONU está integrada para respaldar la formación técnica en Barcelona, no hay ninguna URL en el párrafo y la referencia contiene los 4 elementos obligatorios.
+                Observa cómo el destinatario formal está claro, la cita de la ONU está integrada sin ninguna URL en el párrafo y la referencia contiene los 4 elementos canónicos del Manual IPLACEX (2025).
               </p>
             </div>
           )}
@@ -155,23 +166,23 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
       {/* Tab 2: Laboratorio de Redacción */}
       {activeTab === 'redactor' && (
         <div className="space-y-4">
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
-            <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3">
+            <span className="text-xs font-bold text-[#00a3e0] uppercase tracking-wider">
               Espacio Seguro de Práctica
             </span>
             <h3 className="font-bold text-slate-900 text-base">
               Redacta el borrador de tu párrafo argumentativo para la carta:
             </h3>
             <p className="text-xs sm:text-sm text-slate-600">
-              No recolectamos tus datos personales. Este borrador se mantiene en tu navegador para que puedas verificar tu redacción contra la pauta de autoevaluación.
+              Aviso pedagógico: Para respetar tu autoría y la ética académica, este recurso <strong>no realiza corrección semántica automática</strong> mediante inteligencia artificial. Utiliza este espacio para redactar libremente y contrástalo tú mismo(a) con la pauta de autoevaluación en la siguiente pestaña.
             </p>
 
             <textarea
               rows={6}
               value={studentText}
               onChange={(e) => setStudentText(e.target.value)}
-              placeholder="Ejemplo: Estimado Comité de Selección de la Fundación de Técnicos Iberoamericanos: Postulo a la beca técnica en Barcelona porque de acuerdo con la Organización de las Naciones Unidas [ONU] (2023)..."
-              className="w-full p-3.5 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none focus:border-indigo-600"
+              placeholder="Ejemplo: Estimado Comité de Selección de la Fundación de Técnicos Iberoamericanos: Presento mi postulación a la beca técnica en Barcelona motivado por... Tal como subraya la Organización de las Naciones Unidas [ONU] (s.f., secc. Metas, párr. 4)..."
+              className="w-full p-3.5 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none focus:border-[#15284f]"
               aria-label="Área de redacción del argumento de postulación"
             />
 
@@ -186,9 +197,9 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
                 </button>
                 <button
                   onClick={() => setActiveTab('rubrica')}
-                  className="px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white font-semibold rounded transition-colors"
+                  className="px-3.5 py-1 bg-[#15284f] hover:bg-[#1e3a8a] text-white font-semibold rounded transition-colors"
                 >
-                  Evaluar con la pauta →
+                  Autoevaluar con la pauta (Paso 3) →
                 </button>
               </div>
             </div>
@@ -199,10 +210,10 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
       {/* Tab 3: Rúbrica y Pauta */}
       {activeTab === 'rubrica' && (
         <div className="space-y-4">
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#00a3e0] uppercase tracking-wider">
                   Pauta de Cotejo y Autoevaluación
                 </span>
                 <h3 className="font-bold text-slate-900 text-base">
@@ -218,7 +229,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
             </div>
 
             <div className="space-y-3 mt-4">
-              {RUBRIC_CRITERIA.map((criterion, idx) => {
+              {RUBRIC_CRITERIA.map((criterion) => {
                 const isChecked = !!checkedCriteria[criterion.id];
 
                 return (
@@ -235,7 +246,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggleCriterion(criterion.id)}
-                        className="w-5 h-5 mt-0.5 rounded border-slate-300 text-indigo-700 focus:ring-indigo-600 shrink-0"
+                        className="w-5 h-5 mt-0.5 rounded border-slate-300 text-[#15284f] focus:ring-[#15284f] shrink-0"
                       />
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
@@ -272,18 +283,18 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
               className={`p-4 rounded-xl border text-xs sm:text-sm leading-relaxed ${
                 checkedCount === RUBRIC_CRITERIA.length
                   ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
-                  : 'bg-indigo-50 border-indigo-200 text-indigo-950'
+                  : 'bg-sky-50 border-sky-200 text-sky-950'
               }`}
             >
               <strong>
                 {checkedCount === RUBRIC_CRITERIA.length
-                  ? '¡Felicitaciones! Has verificado los 5 criterios formativos del examen final.'
+                  ? '¡Excelente trabajo! Has comprobado los 5 criterios formativos del examen final.'
                   : `Progreso de autoevaluación: ${checkedCount} de 5 criterios verificados.`}
               </strong>
               <p className="mt-1">
                 {checkedCount === RUBRIC_CRITERIA.length
-                  ? 'Tu fundamentación con los ODS, la cita institucional en APA 7 y la referencia bibliográfica están listas para ser transferidas a tu entrega final en Blackboard.'
-                  : 'Revisa cuidadosamente los puntos no marcados antes de enviar tu evaluación a la docente.'}
+                  ? 'Tu texto cumple con el destinatario formal, la fundamentación con ODS 4, la citación institucional de la ONU en APA 7 y la referencia canónica requerida por las Bibliotecas IPLACEX (2025).'
+                  : 'Revisa cuidadosamente los puntos no marcados antes de enviar tu evaluación a la docente en Blackboard.'}
               </p>
             </div>
           </div>
@@ -294,7 +305,7 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
       <div className="pt-4 flex flex-wrap gap-3 justify-between items-center border-t border-slate-200">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
         >
           ← Volver a Escena 5
         </button>
@@ -302,13 +313,13 @@ export const Scene6Integrator: React.FC<Scene6IntegratorProps> = ({
         <div className="flex gap-2">
           <button
             onClick={onRestart}
-            className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             Reiniciar Todo ↺
           </button>
           <button
             onClick={() => window.print()}
-            className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-semibold border border-indigo-200 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-4 py-2 bg-sky-50 hover:bg-sky-100 text-[#15284f] font-semibold border border-sky-200 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             Imprimir / Guardar Pauta 🖨️
           </button>

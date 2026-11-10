@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { COMPARISON_SCENARIO } from '../data/educationalContent';
+import { COMPARISON_SCENARIO, INSTITUTIONAL_LINKS } from '../data/educationalContent';
 
 interface Scene5ComparisonProps {
   onComplete: () => void;
@@ -32,26 +32,40 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="border-b border-slate-200 pb-4">
-        <div className="text-xs font-bold uppercase tracking-wider text-indigo-700">
-          Escena 5 · Análisis Crítico y Articulación Argumentativa
+        <div className="text-xs font-bold uppercase tracking-wider text-[#00a3e0]">
+          Escena 5 · Análisis Retórico y Articulación con ODS 4
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#15284f] mt-1 tracking-tight">
           ¿Dónde la Fuente del ODS Fundamenta el Argumento?
         </h2>
-        <p className="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
-          Citar no consiste en colocar una frase de la ONU para que la carta "se vea académica". Una cita institucional debe actuar como la <strong>premisa probatoria</strong> que respalda por qué necesitas la especialización técnica en Barcelona.
-        </p>
       </div>
 
-      {/* Rhetorical principle banner */}
-      <div className="bg-indigo-50/60 border border-indigo-200 rounded-xl p-4 text-xs sm:text-sm text-indigo-950 space-y-1">
-        <strong className="block text-indigo-900 font-bold">
-          Principio retórico de la redacción técnica (IPLACEX):
+      {/* Autonomous Learning Guide Box */}
+      <div className="bg-[#f0f7ff] border border-sky-200 rounded-xl p-4 text-xs space-y-1.5">
+        <strong className="block text-[#15284f] font-bold text-sm">
+          📋 Instrucciones de Aprendizaje Autónomo:
         </strong>
-        <p className="leading-relaxed">
-          <strong>Diagnóstico global (Fuente ONU)</strong> → <strong>Desafío técnico local (Tu realidad laboral)</strong> → <strong>Solución aplicada (La beca en Barcelona)</strong>. Si se corta ese hilo, la cita se convierte en una "isla decorativa".
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 text-slate-700">
+          <div><strong>🎯 Qué hacer:</strong> Compara dos cartas reales dirigidas a la Fundación de Técnicos Iberoamericanos y detecta cuál vincula eficazmente el ODS 4 con la beca en Barcelona.</div>
+          <div><strong>📝 Cómo responder:</strong> Pulsa 'Evaluar Fragmento A' o 'Evaluar Fragmento B' para examinar su estructura argumentativa.</div>
+          <div><strong>💡 Cómo consultar pistas:</strong> Haz clic en 'Solicitar Pista 💡' para analizar la articulación causa-efecto del argumento.</div>
+          <div><strong>🔍 Cómo revisar:</strong> Revisa el desglose analítico del docente bajo cada opción y pulsa 'Reintentar análisis ↺' para probar ambas alternativas.</div>
+        </div>
+      </div>
+
+      {/* Rhetorical Principle Banner */}
+      <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-800 space-y-1.5">
+        <strong className="block text-[#15284f] font-bold">
+          Principio Retórico de Comunicación y Redacción (IPLACEX):
+        </strong>
+        <p className="leading-relaxed text-slate-600">
+          <strong>Premisa Mayor (Diagnóstico ODS 4):</strong> La ONU alerta sobre la escasez de competencias técnicas aplicadas → <strong>Premisa Menor (Oportunidad formativa):</strong> Barcelona posee centros punteros en tecnología aplicada → <strong>Conclusión (Impacto profesional):</strong> El postulante resolverá una necesidad concreta de su región al regresar. Si la cita no cumple esta función probatoria, se convierte en una "cita isla".
         </p>
+        <div className="text-[11px] text-sky-800 pt-1">
+          Fuente de contraste: <a href={INSTITUTIONAL_LINKS.ods4Chile} target="_blank" rel="noopener noreferrer" className="underline font-semibold">Meta 4.4 de Naciones Unidas (Competencias técnicas para el empleo) ↗</a>
+        </div>
       </div>
 
       {/* Comparison Grid */}
@@ -66,11 +80,11 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
         >
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-200">
+              <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-200">
                 Opción A · Cita "Isla" o Decorativa
               </span>
               {selectedExcerpt === 'A' && (
-                <span className="text-xs font-bold text-rose-700">✗ Selección no recomendada</span>
+                <span className="text-xs font-bold text-rose-700">✗ Selección Débil</span>
               )}
             </div>
 
@@ -83,7 +97,7 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
                 <strong className="block text-rose-900 font-semibold">Análisis evaluativo docente:</strong>
                 <p>{COMPARISON_SCENARIO.excerptA.analysis}</p>
                 <div className="text-[11px] text-rose-800 pt-1">
-                  <strong>Consecuencia en la rúbrica:</strong> La comisión evaluadora descartará el argumento por carecer de rigor técnico y enfocarse en motivaciones de turismo personal.
+                  <strong>Impacto en la evaluación:</strong> En Blackboard este párrafo obtendría puntaje mínimo en el criterio de argumentación por confundir una meta técnica de la ONU con un beneficio turístico personal.
                 </div>
               </div>
             )}
@@ -91,7 +105,7 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
 
           <button
             onClick={() => handleSelect('A')}
-            className={`mt-4 w-full py-2 px-3 rounded-lg text-xs font-bold transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+            className={`mt-4 w-full py-2 px-3 rounded-lg text-xs font-bold transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
               selectedExcerpt === 'A'
                 ? 'bg-rose-600 text-white'
                 : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-50'
@@ -111,11 +125,11 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
         >
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200">
+              <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200">
                 Opción B · Cita Integrada y Fundamentadora
               </span>
               {selectedExcerpt === 'B' && (
-                <span className="text-xs font-bold text-emerald-700">✓ Modelo Recomendado</span>
+                <span className="text-xs font-bold text-emerald-700">✓ Modelo Sobresaliente</span>
               )}
             </div>
 
@@ -128,7 +142,7 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
                 <strong className="block text-emerald-900 font-semibold">Análisis evaluativo docente:</strong>
                 <p>{COMPARISON_SCENARIO.excerptB.analysis}</p>
                 <div className="text-[11px] text-emerald-800 pt-1">
-                  <strong>Fortaleza de la postulación:</strong> Articula el diagnóstico de la ONU con Barcelona como referente técnico (modelos de Superilles y logística), proyectando una transferencia real a Iberoamérica.
+                  <strong>Puntaje máximo en rúbrica:</strong> La cita de la ONU valida que el problema técnico es una prioridad regional, y el postulante expone con precisión técnica qué metodologías aprenderá en Barcelona para transferirlas a Iberoamérica.
                 </div>
               </div>
             )}
@@ -136,7 +150,7 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
 
           <button
             onClick={() => handleSelect('B')}
-            className={`mt-4 w-full py-2 px-3 rounded-lg text-xs font-bold transition-all focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+            className={`mt-4 w-full py-2 px-3 rounded-lg text-xs font-bold transition-all focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
               selectedExcerpt === 'B'
                 ? 'bg-emerald-600 text-white'
                 : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-50'
@@ -159,8 +173,8 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
         >
           <strong className="block text-sm">
             {selectedExcerpt === 'B'
-              ? '¡Excelente distinción crítica!'
-              : 'Reflexión pedagógica sobre el Fragmento A:'}
+              ? '✓ ¡Excelente distinción crítica!'
+              : '✗ Reflexión formativa sobre el Fragmento A:'}
           </strong>
           <p>{COMPARISON_SCENARIO.keyTakeaway}</p>
         </div>
@@ -168,8 +182,8 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
 
       {/* Pedagogical Hint */}
       {showHint && (
-        <div className="p-4 bg-yellow-50 border border-yellow-300 rounded-xl text-xs sm:text-sm text-yellow-950 space-y-1">
-          <strong className="block text-yellow-900 font-bold">💡 Pista del docente:</strong>
+        <div className="p-4 bg-amber-50 border border-amber-300 rounded-xl text-xs sm:text-sm text-amber-950 space-y-1">
+          <strong className="block text-amber-900 font-bold">💡 Pista pedagógica:</strong>
           <p>{COMPARISON_SCENARIO.hint}</p>
         </div>
       )}
@@ -182,13 +196,13 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
         <div className="flex gap-2">
           <button
             onClick={() => setShowHint(!showHint)}
-            className="px-3.5 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-900 border border-yellow-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-3.5 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             {showHint ? 'Ocultar Pista' : 'Pista 💡'}
           </button>
           <button
             onClick={handleReset}
-            className="px-3.5 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-3.5 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
             Reintentar análisis ↺
           </button>
@@ -199,16 +213,16 @@ export const Scene5Comparison: React.FC<Scene5ComparisonProps> = ({
       <div className="pt-2 flex justify-between items-center border-t border-slate-200">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold border border-slate-300 rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
         >
           ← Volver a Escena 4
         </button>
 
         <button
           onClick={onContinue}
-          className={`px-5 py-2 font-semibold rounded-lg text-sm transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none ${
+          className={`px-5 py-2 font-semibold rounded-lg text-sm transition-colors shadow-xs focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none ${
             selectedExcerpt === 'B'
-              ? 'bg-indigo-700 hover:bg-indigo-800 text-white'
+              ? 'bg-[#15284f] hover:bg-[#1e3a8a] text-white'
               : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
           }`}
         >

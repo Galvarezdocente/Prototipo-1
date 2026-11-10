@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>De la fuente al argumento (v2 Avanzada) - Objeto de Aprendizaje APA 7 & ODS</title>
-  <meta name="description" content="Recurso educativo accesible avanzado v2: normas APA 7 (IPLACEX 2025), ODS de la ONU y carta de postulación a la Fundación de Técnicos Iberoamericanos.">
+  <title>De la fuente al argumento (v2 Avanzada) - Objeto de Aprendizaje APA 7 y ODS 4 (IPLACEX)</title>
+  <meta name="description" content="Recurso educativo accesible avanzado v2: normas APA 7 (Manual Bibliotecas IPLACEX 2025), ODS 4 de la ONU y carta de postulación a la Fundación de Técnicos Iberoamericanos.">
   <style>
     :root {
       --font-scale: 1rem;
@@ -15,9 +15,9 @@
       --color-border-dark: #64748b;
       --color-text: #0f172a;
       --color-text-muted: #475569;
-      --color-primary: #1e3a8a;
-      --color-primary-hover: #172554;
-      --color-accent: #0284c7;
+      --color-iplacex-navy: #15284f;
+      --color-iplacex-blue: #1e3a8a;
+      --color-iplacex-cyan: #00a3e0;
       --color-success-bg: #ecfdf5;
       --color-success-border: #059669;
       --color-success-text: #064e3b;
@@ -37,9 +37,9 @@
       --color-border-dark: #facc15;
       --color-text: #ffffff;
       --color-text-muted: #e2e8f0;
-      --color-primary: #facc15;
-      --color-primary-hover: #eab308;
-      --color-accent: #38bdf8;
+      --color-iplacex-navy: #facc15;
+      --color-iplacex-blue: #fef08a;
+      --color-iplacex-cyan: #38bdf8;
       --color-success-bg: #052e16;
       --color-success-border: #22c55e;
       --color-success-text: #86efac;
@@ -68,7 +68,7 @@
       position: absolute;
       top: -40px;
       left: 10px;
-      background: var(--color-primary);
+      background: var(--color-iplacex-navy);
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;
@@ -82,7 +82,7 @@
     }
 
     :focus-visible {
-      outline: 3px solid var(--color-primary);
+      outline: 3px solid var(--color-iplacex-navy);
       outline-offset: 3px;
     }
 
@@ -91,7 +91,7 @@
       margin: 0 auto;
     }
 
-    /* Accessibility Top Bar */
+    /* Accessibility Bar */
     .accessibility-bar {
       display: flex;
       justify-content: space-between;
@@ -137,7 +137,7 @@
     .badge-institution {
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--color-primary);
+      color: var(--color-iplacex-navy);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -145,11 +145,35 @@
     h1.resource-title {
       font-size: 1.85rem;
       font-weight: 800;
+      color: var(--color-iplacex-navy);
       margin: 0.35rem 0 0.5rem 0;
       line-height: 1.25;
     }
+    body.high-contrast h1.resource-title {
+      color: #facc15;
+    }
 
-    /* Tabs & Progress */
+    .official-sources-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #f0f7ff;
+      border: 1px solid #bae6fd;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+    }
+    body.high-contrast .official-sources-bar {
+      background: #1e1e1e;
+      border-color: #facc15;
+    }
+    .official-sources-bar a {
+      color: var(--color-iplacex-navy);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
     .progress-section {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -177,7 +201,7 @@
 
     .progress-fill {
       height: 100%;
-      background: var(--color-primary);
+      background: var(--color-iplacex-navy);
       width: 17%;
       transition: width 0.3s ease;
     }
@@ -206,9 +230,9 @@
     }
 
     .scene-dot-btn.active {
-      background: var(--color-primary);
+      background: var(--color-iplacex-navy);
       color: #ffffff;
-      border-color: var(--color-primary);
+      border-color: var(--color-iplacex-navy);
     }
     body.high-contrast .scene-dot-btn.active {
       color: #000000;
@@ -232,15 +256,34 @@
       display: inline-block;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--color-accent);
+      color: var(--color-iplacex-cyan);
       margin-bottom: 0.5rem;
     }
 
     h2.scene-heading {
       font-size: 1.6rem;
+      color: var(--color-iplacex-navy);
       margin-bottom: 1rem;
       line-height: 1.3;
     }
+    body.high-contrast h2.scene-heading { color: #facc15; }
+
+    .instructions-box {
+      background: #f0f7ff;
+      border: 1px solid #7dd3fc;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.88rem;
+    }
+    body.high-contrast .instructions-box {
+      background: #1e1e1e;
+      border-color: #38bdf8;
+    }
+    .instructions-box strong {
+      color: var(--color-iplacex-navy);
+    }
+    body.high-contrast .instructions-box strong { color: #38bdf8; }
 
     .callout {
       border-radius: 6px;
@@ -261,29 +304,6 @@
       color: #e0f2fe;
     }
 
-    .callout-warning {
-      border-color: var(--color-warning-border);
-      background: var(--color-warning-bg);
-      color: var(--color-warning-text);
-    }
-
-    .tag-unverified {
-      display: inline-block;
-      background: #fef3c7;
-      border: 1px solid #d97706;
-      color: #92400e;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 4px;
-    }
-    body.high-contrast .tag-unverified {
-      background: #78350f;
-      color: #fef08a;
-      border-color: #fde047;
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -298,14 +318,14 @@
     }
 
     .btn-primary {
-      background: var(--color-primary);
+      background: var(--color-iplacex-navy);
       color: #ffffff;
     }
     body.high-contrast .btn-primary {
       color: #000000;
     }
     .btn-primary:hover {
-      background: var(--color-primary-hover);
+      background: var(--color-iplacex-blue);
     }
 
     .btn-secondary {
@@ -404,7 +424,7 @@
       width: 22px;
       height: 22px;
       margin-top: 2px;
-      accent-color: var(--color-primary);
+      accent-color: var(--color-iplacex-navy);
     }
 
     /* Modal for Glossary */
@@ -453,7 +473,8 @@
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--color-border);
     }
-    .glossary-entry strong { color: var(--color-primary); }
+    .glossary-entry strong { color: var(--color-iplacex-navy); }
+    body.high-contrast .glossary-entry strong { color: #facc15; }
 
     @media print {
       body { background: white; color: black; }
@@ -468,7 +489,7 @@
   <div class="container">
     <!-- Accessibility utility bar -->
     <aside class="accessibility-bar" aria-label="Herramientas de accesibilidad y consulta">
-      <div><strong>Accesibilidad:</strong> Navegación por teclado · Contraste WCAG AA</div>
+      <div><strong>Accesibilidad IPLACEX:</strong> Navegación por teclado · Contraste WCAG AA</div>
       <div class="accessibility-controls">
         <button class="btn-acc" onclick="changeFontSize(-1)" aria-label="Reducir tamaño de letra">A-</button>
         <button class="btn-acc" onclick="changeFontSize(1)" aria-label="Aumentar tamaño de letra">A+</button>
@@ -478,11 +499,18 @@
     </aside>
 
     <header class="app-header" role="banner">
-      <div class="badge-institution">IPLACEX · Formación Transversal · Comunicación y Redacción</div>
+      <div class="badge-institution">IPLACEX · Bibliotecas & Formación Transversal · Comunicación y Redacción</div>
       <h1 class="resource-title">De la fuente al argumento (v2 Interactiva)</h1>
       <p style="color: var(--color-text-muted);">
-        Objeto de aprendizaje interactivo y accesible para el examen final: postulación a la beca en Barcelona ante la <strong>Fundación de Técnicos Iberoamericanos</strong>, fundamentada en los <strong>ODS de la ONU</strong> y normas <strong>APA 7 (IPLACEX 2025)</strong>.
+        Objeto de aprendizaje autoinstructivo para el examen final: postulación a la beca en Barcelona ante la <strong>Fundación de Técnicos Iberoamericanos</strong>, fundamentada en el <strong>ODS 4 (Educación de Calidad)</strong> y normas <strong>APA 7 (Manual IPLACEX, 2025)</strong>.
       </p>
+
+      <div class="official-sources-bar">
+        <span><strong>Documentos de consulta oficial:</strong></span>
+        <a href="/assets/aistudio/Fuente_3_6c6d0450.pdf" target="_blank" rel="noopener noreferrer">Manual Bibliotecas IPLACEX (PDF) ↗</a>
+        <a href="https://chile.un.org/es/sdgs/4" target="_blank" rel="noopener noreferrer">ONU Chile · ODS 4 ↗</a>
+        <a href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" target="_blank" rel="noopener noreferrer">APA Style Oficial ↗</a>
+      </div>
     </header>
 
     <section class="progress-section" aria-label="Progreso de aprendizaje">
@@ -498,7 +526,7 @@
         <button class="scene-dot-btn" id="dot-2" onclick="goToScene(2)">2. Clasificación</button>
         <button class="scene-dot-btn" id="dot-3" onclick="goToScene(3)">3. Cita Web</button>
         <button class="scene-dot-btn" id="dot-4" onclick="goToScene(4)">4. Referencia</button>
-        <button class="scene-dot-btn" id="dot-5" onclick="goToScene(5)">5. Argumento ODS</button>
+        <button class="scene-dot-btn" id="dot-5" onclick="goToScene(5)">5. ODS 4</button>
         <button class="scene-dot-btn" id="dot-6" onclick="goToScene(6)">6. Taller Final</button>
       </nav>
     </section>
@@ -512,15 +540,15 @@
           <button class="btn btn-secondary" onclick="restartResource()">Reiniciar</button>
         </div>
         <div style="display: flex; gap: 0.5rem;">
-          <button class="btn btn-hint" id="btn-hint" onclick="toggleHint()">Ver Pista</button>
+          <button class="btn btn-hint" id="btn-hint" onclick="toggleHint()">Ver Pista 💡</button>
           <button class="btn btn-primary" id="btn-next" onclick="changeScene(1)">Continuar</button>
         </div>
       </nav>
     </main>
 
     <footer style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 1.5rem;">
-      Manual de Citación y Referencias APA (7.ª edición) · Sistema de Bibliotecas IPLACEX (2025).<br>
-      Compatible con navegadores modernos y lectores de pantalla (NVDA, JAWS, VoiceOver).
+      Manual Citas y Referencias Normas (APA) 7.ª edición · Bibliotecas Iplacex (Paula Vega, Febrero 2025).<br>
+      Compatible con lectores de pantalla y navegación por teclado en Blackboard Learn.
     </footer>
   </div>
 
@@ -528,37 +556,37 @@
   <div class="modal-backdrop" id="glossary-modal" role="dialog" aria-modal="true" aria-labelledby="glossary-title">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="glossary-title" style="font-size: 1.3rem;">Glosario Clave APA 7 & ODS</h3>
+        <h3 id="glossary-title" style="font-size: 1.3rem;">Glosario Clave APA 7 & ODS 4</h3>
         <button class="close-btn" onclick="closeGlossary()" aria-label="Cerrar ventana">×</button>
       </div>
       <div id="glossary-body">
         <div class="glossary-entry">
           <strong>Cita en el texto:</strong>
-          <p>Mención en el párrafo que acredita autoría y fecha (ej. <code>(Organización de las Naciones Unidas [ONU], 2023, párr. 4)</code>). Nunca contiene una URL.</p>
+          <p>Mención dentro del párrafo que acredita autoría y fecha (ej. <code>(Organización de las Naciones Unidas [ONU], s.f., secc. Metas, párr. 4)</code>). Nunca contiene una URL.</p>
         </div>
         <div class="glossary-entry">
           <strong>Referencia bibliográfica:</strong>
-          <p>Entrada al final del texto en la sección 'Referencias' con: Autor. (Año). <em>Título en cursiva</em>. Sitio web. URL.</p>
+          <p>Entrada al final del documento en la sección 'Referencias': Autor institucional. (s.f.). <em>Título de la página en cursiva</em>. Sitio web. URL limpia.</p>
         </div>
         <div class="glossary-entry">
           <strong>URL (Dirección web):</strong>
-          <p>Localizador técnico que solo se coloca al cierre de la referencia bibliográfica para permitir al lector consultar la página original.</p>
+          <p>Localizador técnico que solo se coloca al cierre de la referencia bibliográfica para permitir consultar la fuente original.</p>
         </div>
         <div class="glossary-entry">
           <strong>Autor Institucional o Corporativo:</strong>
-          <p>Organismo que asume la responsabilidad del contenido (Organización de las Naciones Unidas). La primera vez se escribe completo con la sigla entre corchetes <code>[ONU]</code>.</p>
+          <p>Entidad que asume la responsabilidad del contenido (Organización de las Naciones Unidas). La primera vez se escribe completo con la sigla entre corchetes <code>[ONU]</code>.</p>
         </div>
         <div class="glossary-entry">
           <strong>(s.f.) - Sin fecha:</strong>
-          <p>Abreviatura oficial en minúsculas exigida por APA 7 cuando una página web no tiene fecha de publicación o actualización explícita.</p>
+          <p>Abreviatura oficial en minúsculas exigida por APA 7 cuando una página web no exhibe fecha explícita de publicación o actualización.</p>
         </div>
         <div class="glossary-entry">
-          <strong>Marcador [Pendiente de verificar por docente]:</strong>
-          <p>Rotulación pedagógica obligatoria para asegurar que el docente valide la fecha y enlace de la página institucional de la ONU antes de publicar el examen.</p>
+          <strong>ODS 4 (Educación de Calidad):</strong>
+          <p>Objetivo de Desarrollo Sostenible que promueve la formación técnica y profesional superior de calidad (metas 4.3 y 4.4 de la ONU).</p>
         </div>
       </div>
       <div style="text-align: right; margin-top: 1rem;">
-        <button class="btn btn-secondary" onclick="closeGlossary()">Entendido</button>
+        <button class="btn btn-secondary" onclick="closeGlossary()">Cerrar Glosario</button>
       </div>
     </div>
   </div>
@@ -571,10 +599,10 @@
 
     let s2Answers = {};
     const s2Items = [
-      { id: 'item1', text: 'https://www.un.org/sustainabledevelopment/es/cities/', correct: 'url', explanation: 'Es una URL suelta. No constituye cita ni referencia.' },
-      { id: 'item2', text: '(Organización de las Naciones Unidas [ONU], 2023, párr. 4)', correct: 'cita', explanation: 'Es una cita parentética en el texto con autor corporativo, año y párrafo.' },
-      { id: 'item3', text: 'Organización de las Naciones Unidas. (2023). Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles. Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/', correct: 'referencia', explanation: 'Es una referencia bibliográfica completa según APA 7 (IPLACEX 2025).' },
-      { id: 'item4', text: 'Según la Organización de las Naciones Unidas [ONU] (2023), la tecnificación de las redes energéticas...', correct: 'cita', explanation: 'Es una cita narrativa integrada al discurso del párrafo.' }
+      { id: 'item1', text: 'https://chile.un.org/es/sdgs/4', correct: 'url', explanation: 'Es una URL suelta. No constituye cita ni referencia válida en el texto.' },
+      { id: 'item2', text: '(Organización de las Naciones Unidas [ONU], s.f., secc. Metas, párr. 4)', correct: 'cita', explanation: 'Es una cita parentética con autor corporativo, sigla en corchetes, (s.f.) y párrafo.' },
+      { id: 'item3', text: 'Organización de las Naciones Unidas. (s.f.). Objetivo 4: Educación de calidad. Naciones Unidas. https://chile.un.org/es/sdgs/4', correct: 'referencia', explanation: 'Es una referencia bibliográfica completa según APA 7 (Manual IPLACEX 2025, p. 6).' },
+      { id: 'item4', text: 'Según la Organización de las Naciones Unidas [ONU] (s.f.), el acceso a formación técnica...', correct: 'cita', explanation: 'Es una cita narrativa integrada al discurso del párrafo.' }
     ];
 
     let s3Selected = null;
@@ -609,11 +637,11 @@
       document.getElementById('progress-bar').setAttribute('aria-valuenow', pct);
 
       const sceneNames = [
-        "Caso Beca Barcelona y Marco ODS",
+        "Caso Beca Barcelona y Marco ODS 4",
         "Clasificar Cita, Referencia y URL",
         "Cita Institucional APA 7",
         "Referencia Bibliográfica en 4 Pasos",
-        "Fundamentación del Argumento con ODS",
+        "Fundamentación del Argumento con ODS 4",
         "Taller de Redacción y Autoevaluación"
       ];
       document.getElementById('progress-label').innerText = `Escena ${sceneNum} de ${totalScenes}: ${sceneNames[sceneNum - 1]}`;
@@ -625,38 +653,39 @@
 
       if (sceneNum === 1) {
         container.innerHTML = `
-          <span class="scene-badge">ESCENA 1 · ORIENTACIÓN DOCENTE</span>
+          <span class="scene-badge">ESCENA 1 · ORIENTACIÓN FORMATIVA Y NAVEGACIÓN</span>
           <h2 class="scene-heading">El reto del examen final: Carta a la Fundación de Técnicos Iberoamericanos</h2>
           
-          <div class="callout callout-info">
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Objetivo de aprendizaje:</h3>
-            <p>Al concluir este recurso serás capaz de distinguir una cita de una referencia, citar páginas de la ONU sin caer en la trampa de la URL suelta y vincular la evidencia de los ODS con tus argumentos técnicos para postular a Barcelona.</p>
+          <div class="instructions-box">
+            <strong>📋 Guía de Aprendizaje Autónomo:</strong>
+            <p>1. <strong>Objetivo:</strong> Aprenderás a integrar fuentes oficiales de la ONU (ODS 4) en tu carta de postulación a Barcelona según APA 7.</p>
+            <p>2. <strong>Controles:</strong> Responde con el ratón o con tu teclado (teclas <code>Tab</code>, <code>Enter</code> y flechas <code>←</code> / <code>→</code>).</p>
+            <p>3. <strong>Pistas y Reintentos:</strong> Puedes solicitar pistas docentes y reintentar cada actividad cuantas veces desees.</p>
           </div>
 
-          <h3 style="font-size: 1.15rem; margin-top: 1.25rem;">Contexto de la postulación:</h3>
-          <p style="margin-top: 0.5rem;">
-            La <strong>Fundación de Técnicos Iberoamericanos</strong> ofrece becas de perfeccionamiento en Barcelona para estudiantes y titulados técnicos y profesionales. Para adjudicar la beca, el Comité evaluará dos argumentos técnicos sustentados en los Objetivos de Desarrollo Sostenible (ODS de la ONU) y formalizados según las normas APA 7 vigentes en el <strong>Manual de Bibliotecas IPLACEX (2025)</strong>.
-          </p>
+          <div class="callout callout-info">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; font-weight: 700;">Contexto de la postulación evaluada:</h3>
+            <p>La <strong>Fundación de Técnicos Iberoamericanos</strong> ofrece becas de perfeccionamiento en Barcelona. El Comité evaluará dos argumentos técnicos sustentados en el <strong>ODS 4 (Educación de Calidad y Formación Técnico-Profesional, metas 4.3 y 4.4 de la ONU)</strong> y formalizados según las normas APA 7 vigentes en el <strong>Manual de Bibliotecas IPLACEX (2025)</strong>.</p>
+          </div>
 
           <div style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 6px; padding: 1.25rem; margin: 1.25rem 0;">
-            <h4 style="margin-bottom: 0.5rem;">Criterios no negociables del examen:</h4>
+            <h4 style="margin-bottom: 0.5rem; font-weight: 700;">Criterios no negociables del examen en Blackboard:</h4>
             <ol style="padding-left: 1.25rem; line-height: 1.7;">
               <li><strong>Destinatario formal:</strong> Fundación de Técnicos Iberoamericanos.</li>
-              <li><strong>Dos argumentos técnicos:</strong> Conectados con metas concretas de un ODS (ej. ODS 11 Ciudades Sostenibles, ODS 9 Industria e Innovación).</li>
-              <li><strong>Cita institucional APA 7:</strong> En el texto (autor corporativo y año o s.f.).</li>
-              <li><strong>Referencia bibliográfica:</strong> En la sección final, con los 4 datos canónicos.</li>
+              <li><strong>Dos argumentos técnicos:</strong> Conectados con metas del ODS 4 (acceso y competencias técnicas avanzadas).</li>
+              <li><strong>Cita institucional APA 7:</strong> En el texto (autor corporativo [ONU], s.f. y párrafo; cero URLs en el texto).</li>
+              <li><strong>Referencia bibliográfica:</strong> En la sección final, con los 4 datos canónicos obligatorios.</li>
             </ol>
-          </div>
-
-          <div class="callout callout-warning">
-            <strong>Marcadores pedagógicos:</strong> Encontrarás datos señalados como <span class="tag-unverified">Pendiente de verificar por docente</span>. Esto garantiza la integridad académica: antes de la aplicación definitiva, el equipo docente ratifica la vigencia de cada vínculo web.
           </div>
         `;
       } else if (sceneNum === 2) {
         container.innerHTML = `
           <span class="scene-badge">ESCENA 2 · ACTIVIDAD DE CLASIFICACIÓN</span>
           <h2 class="scene-heading">Diferenciar Cita, Referencia y URL</h2>
-          <p>Uno de los errores más graves en Blackboard es pegar una URL en el cuerpo de la carta creyendo que es una cita. Clasifica cada ítem:</p>
+          
+          <div class="instructions-box">
+            <strong>📋 Instrucciones:</strong> Clasifica cada uno de los 4 elementos presentados. Revisa la retroalimentación inmediata que aparece bajo cada uno al pulsar tu opción.
+          </div>
 
           <div style="margin-top: 1.25rem;">
             ${s2Items.map((item, idx) => `
@@ -673,101 +702,102 @@
           </div>
 
           <div id="hint-content" class="hint-box">
-            <strong>Pista del docente:</strong> Si tiene <code>https://</code> y nada más, es URL suelta. Si está entre paréntesis dentro de una oración (o integrada con el autor), es Cita. Si tiene autor, fecha, título en cursiva y URL al final del documento, es Referencia.
+            <strong>Pista del docente:</strong> Si tiene <code>https://</code> y nada más, es URL suelta. Si está entre paréntesis dentro de una oración (o con el autor incorporado), es Cita. Si reúne autor, fecha, título en cursiva y URL al final del documento, es Referencia.
           </div>
         `;
-        // Refresh active feedbacks
         s2Items.forEach(item => {
           if (s2Answers[item.id]) {
             const fb = document.getElementById('fb-s2-' + item.id);
             const isCorrect = (s2Answers[item.id] === item.correct);
             fb.className = 'feedback-box active ' + (isCorrect ? 'feedback-success' : 'feedback-error');
-            fb.innerHTML = `<strong>${isCorrect ? '¡Correcto!' : 'Revisión necesaria:'}</strong> ${item.explanation}`;
+            fb.innerHTML = `<strong>${isCorrect ? '✓ ¡Correcto!' : '✗ Revisión necesaria:'}</strong> ${item.explanation}`;
           }
         });
       } else if (sceneNum === 3) {
         container.innerHTML = `
-          <span class="scene-badge">ESCENA 3 · REGLAS DE CITACIÓN APA 7</span>
-          <h2 class="scene-heading">Cómo citar una página institucional de la ONU</h2>
-          <p>El Manual de Bibliotecas IPLACEX (2025) establece:</p>
+          <span class="scene-badge">ESCENA 3 · REGLAS DE CITACIÓN APA 7 (MANUAL IPLACEX 2025, P. 5)</span>
+          <h2 class="scene-heading">Cómo citar la página institucional de la ONU (ODS 4)</h2>
           
-          <ul style="padding-left: 1.25rem; margin: 1rem 0; line-height: 1.7;">
-            <li><strong>Primera cita de autor corporativo:</strong> Se indica el nombre completo y la sigla entre corchetes: <code>Organización de las Naciones Unidas [ONU] (2023)</code> o <code>(Organización de las Naciones Unidas [ONU], 2023)</code>.</li>
-            <li><strong>Citas subsiguientes:</strong> Puedes usar directamente la sigla: <code>(ONU, 2023)</code>.</li>
-            <li><strong>Páginas web sin número de página:</strong> Si citas textual, indica el párrafo (ej. <code>párr. 4</code>).</li>
-          </ul>
+          <div class="instructions-box">
+            <strong>📋 Instrucciones:</strong> Selecciona cuál de las opciones cita correctamente la página del ODS 4 en el cuerpo de tu carta formal.
+          </div>
 
           <div style="margin-top: 1.25rem;">
-            <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem;">¿Cuál opción cumple estrictamente la norma en tu carta?</h3>
             <div style="display: grid; gap: 0.75rem;">
               <button class="btn btn-secondary ${s3Selected === 1 ? 'btn-primary' : ''}" style="text-align: left; justify-content: flex-start; height: auto; padding: 1rem;" onclick="selectS3(1)">
-                A) "Como señala la Organización de las Naciones Unidas [ONU] (2023, párr. 4), la transición hacia urbes sostenibles exige técnicos en eficiencia energética..."
+                A) "Tal como subraya la Organización de las Naciones Unidas [ONU] (s.f., secc. Metas, párr. 4), asegurar el acceso igualitario a formación técnica y profesional de calidad es decisivo..."
               </button>
               <button class="btn btn-secondary ${s3Selected === 2 ? 'btn-primary' : ''}" style="text-align: left; justify-content: flex-start; height: auto; padding: 1rem;" onclick="selectS3(2)">
-                B) "La transición exige técnicos en eficiencia energética (ver https://www.un.org/sustainabledevelopment/es/cities/)."
+                B) "El acceso a competencias técnicas es decisivo (ver https://chile.un.org/es/sdgs/4)."
               </button>
               <button class="btn btn-secondary ${s3Selected === 3 ? 'btn-primary' : ''}" style="text-align: left; justify-content: flex-start; height: auto; padding: 1rem;" onclick="selectS3(3)">
-                C) "Según la página de la ONU 'Objetivo 11' (2023), se necesitan técnicos..."
+                C) "Según la página de la ONU 'Objetivo 4' (2023), se necesitan técnicos..."
               </button>
             </div>
             <div id="fb-s3" class="feedback-box"></div>
           </div>
 
           <div id="hint-content" class="hint-box">
-            <strong>Pista del docente:</strong> Nunca cites una URL en el cuerpo del texto ni cites por el título de la página cuando el autor institucional está claramente identificado.
+            <strong>Pista del docente:</strong> Nunca cites una URL dentro del párrafo ni cites por el título cuando el autor institucional está plenamente identificado.
           </div>
         `;
         if (s3Selected) {
           const fb = document.getElementById('fb-s3');
           fb.className = 'feedback-box active ' + (s3Selected === 1 ? 'feedback-success' : 'feedback-error');
           fb.innerHTML = (s3Selected === 1) 
-            ? '<strong>¡Excelente elección!</strong> Es una cita narrativa impecable: autor institucional completo con corchetes para la sigla en primera mención, año y localizador de párrafo.'
-            : (s3Selected === 2 ? '<strong>Error común grave:</strong> Nunca introduzcas la URL en la redacción del párrafo.' : '<strong>Inadecuado:</strong> En APA 7 se cita por el autor formal, no por el título del artículo o página web.');
+            ? '<strong>✓ ¡Excelente elección!</strong> Es una cita narrativa impecable según el Manual IPLACEX (2025, p. 5): autor institucional completo con corchetes para la sigla [ONU], (s.f.) y número de párrafo.'
+            : (s3Selected === 2 ? '<strong>✗ Error normativo:</strong> Nunca introduzcas la URL en la redacción del párrafo.' : '<strong>✗ Inadecuado:</strong> En APA 7 se cita por el autor corporativo oficial, no por el título del artículo.');
         }
       } else if (sceneNum === 4) {
         container.innerHTML = `
-          <span class="scene-badge">ESCENA 4 · REFERENCIA BIBLIOGRÁFICA</span>
-          <h2 class="scene-heading">Estructura canónica de los 4 elementos (Manual IPLACEX 2025)</h2>
-          <p>Para la página web de la ONU, la referencia bibliográfica al final de la carta debe ordenarse así:</p>
+          <span class="scene-badge">ESCENA 4 · REFERENCIA BIBLIOGRÁFICA (MANUAL IPLACEX 2025, P. 6)</span>
+          <h2 class="scene-heading">Estructura canónica de los 4 elementos</h2>
+          
+          <div class="instructions-box">
+            <strong>📋 Instrucciones:</strong> Examina cómo se articulan las 4 preguntas de la referencia bibliográfica para la página de la ONU:
+          </div>
 
           <div style="margin: 1.25rem 0;">
-            <div style="background: var(--color-surface-subtle); border-left: 4px solid var(--color-primary); padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
-              <strong>1. ¿Quién? (Autoría corporativa):</strong> Organización de las Naciones Unidas.
+            <div style="background: var(--color-surface-subtle); border-left: 4px solid var(--color-iplacex-navy); padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
+              <strong>1. ¿Quién? (Autor corporativo):</strong> Organización de las Naciones Unidas.
             </div>
-            <div style="background: var(--color-surface-subtle); border-left: 4px solid var(--color-accent); padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
-              <strong>2. ¿Cuándo? (Fecha o s.f.):</strong> (2023). <span class="tag-unverified">Pendiente de verificar por docente</span>
+            <div style="background: var(--color-surface-subtle); border-left: 4px solid var(--color-iplacex-cyan); padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
+              <strong>2. ¿Cuándo? (Fecha o s.f.):</strong> (s.f.).
             </div>
             <div style="background: var(--color-surface-subtle); border-left: 4px solid #10b981; padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
-              <strong>3. ¿Qué? (Título de la página en cursiva):</strong> <em>Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles.</em>
+              <strong>3. ¿Qué? (Título de la página en cursiva):</strong> <em>Objetivo 4: Educación de calidad.</em>
             </div>
             <div style="background: var(--color-surface-subtle); border-left: 4px solid #8b5cf6; padding: 0.85rem 1rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0;">
-              <strong>4. ¿Dónde? (Sitio web y enlace URL):</strong> Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/
+              <strong>4. ¿Dónde? (Sitio web y enlace URL):</strong> Naciones Unidas. https://chile.un.org/es/sdgs/4
             </div>
           </div>
 
           <div class="callout callout-info">
-            <strong>Ficha consolidada para tu carta de postulación:</strong>
+            <strong>Ficha consolidada para la sección 'Referencias':</strong>
             <p style="font-family: monospace; font-size: 0.95rem; margin-top: 0.5rem; background: #fff; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 4px; word-break: break-all;">
-              Organización de las Naciones Unidas. (2023). <em>Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles</em>. Naciones Unidas. https://www.un.org/sustainabledevelopment/es/cities/
+              Organización de las Naciones Unidas. (s.f.). <em>Objetivo 4: Educación de calidad</em>. Naciones Unidas. https://chile.un.org/es/sdgs/4
             </p>
           </div>
 
           <div id="hint-content" class="hint-box">
-            <strong>Pista del docente:</strong> En APA 7 ya NO se escribe la frase "Recuperado de". La URL se pega limpia al final sin punto posterior para evitar errores en navegadores.
+            <strong>Pista del docente:</strong> En APA 7 ya NO se escribe la frase "Recuperado de". La URL se coloca limpia al final sin punto posterior para mantener activo el enlace.
           </div>
         `;
       } else if (sceneNum === 5) {
         container.innerHTML = `
-          <span class="scene-badge">ESCENA 5 · INTEGRACIÓN ARGUMENTATIVA</span>
+          <span class="scene-badge">ESCENA 5 · INTEGRACIÓN ARGUMENTATIVA CON ODS 4</span>
           <h2 class="scene-heading">Comparar: ¿Cuándo la cita fundamenta y cuándo solo decora?</h2>
-          <p>Revisa estos dos extractos dirigidos al Comité de Selección de la <strong>Fundación de Técnicos Iberoamericanos</strong>:</p>
+          
+          <div class="instructions-box">
+            <strong>📋 Instrucciones:</strong> Evalúa ambas cartas dirigidas al Comité de Selección de la Fundación de Técnicos Iberoamericanos:
+          </div>
 
           <div class="comp-grid">
             <div class="comp-card">
               <div>
                 <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; border: 1px solid #f87171;">OPCIÓN A: CITA "ISLA"</span>
                 <p style="font-style: italic; margin-top: 0.75rem; font-size: 0.95rem;">
-                  "Estimada Fundación: Solicito la beca en Barcelona porque es una ciudad maravillosa. Tal como indica la Organización de las Naciones Unidas [ONU] (2023), 'las ciudades concentran el 70% de las emisiones globales'. Siempre he soñado con estudiar allá y esta beca me ayudaría a viajar."
+                  "Estimada Fundación: Solicito la beca en Barcelona. De acuerdo con la Organización de las Naciones Unidas [ONU] (s.f., secc. Metas, párr. 4), 'para el 2030 se debe aumentar el número de personas con competencias técnicas y profesionales'. Por eso considero que merezco la beca, ya que siempre he querido vivir en Barcelona y viajar a España."
                 </p>
               </div>
               <button class="btn btn-secondary ${s5Selected === 'A' ? 'btn-primary' : ''}" style="margin-top: 1rem;" onclick="selectS5('A')">Analizar Opción A</button>
@@ -777,7 +807,7 @@
               <div>
                 <span style="background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; border: 1px solid #4ade80;">OPCIÓN B: CITA COMO FUNDAMENTO</span>
                 <p style="font-style: italic; margin-top: 0.75rem; font-size: 0.95rem;">
-                  "Estimado Comité de Selección: Postulo a la beca técnica en Barcelona motivado por la urgencia de descarbonizar el transporte local. Según la Organización de las Naciones Unidas [ONU] (2023), alcanzar ciudades sostenibles (ODS 11) exige modernizar la infraestructura energética crítica (párr. 4). La formación en Barcelona me otorgará metodologías prácticas en redes inteligentes para transferirlas a los municipios de mi región."
+                  "Estimado Comité de Selección: Postulo a la beca técnica en Barcelona motivado por la urgencia de fortalecer las competencias en automatización en nuestro sector productivo. Tal como establece la Organización de las Naciones Unidas [ONU] (s.f., secc. Metas, párr. 4), alcanzar el ODS 4 exige incrementar las competencias técnicas avanzadas para garantizar el empleo y la innovación. Formarme en Barcelona me permitirá asimilar metodologías aplicadas para transferirlas a las PYMES de mi región."
                 </p>
               </div>
               <button class="btn btn-secondary ${s5Selected === 'B' ? 'btn-primary' : ''}" style="margin-top: 1rem;" onclick="selectS5('B')">Analizar Opción B</button>
@@ -794,18 +824,22 @@
           const fb = document.getElementById('fb-s5');
           fb.className = 'feedback-box active ' + (s5Selected === 'B' ? 'feedback-success' : 'feedback-error');
           fb.innerHTML = (s5Selected === 'B')
-            ? '<strong>¡Correcto! La Opción B es el modelo a seguir:</strong> La cita de la ONU (ODS 11) no es un adorno: funciona como premisa mayor que valida la necesidad de la especialización técnica en Barcelona y su posterior impacto en Iberoamérica.'
-            : '<strong>Atención a la Opción A:</strong> La cita está desconectada de los motivos del estudiante. Habla de emisiones de la ONU pero luego se justifica en "ganas de viajar", sin articulación profesional ni técnica.';
+            ? '<strong>✓ ¡Correcto! La Opción B es el modelo a seguir:</strong> La cita de la ONU (ODS 4) funciona como premisa diagnóstica que justifica la necesidad de especialización técnica en Barcelona y su posterior impacto en Iberoamérica.'
+            : '<strong>✗ Atención a la Opción A:</strong> La cita está desconectada de los motivos del estudiante. Menciona el ODS pero luego se justifica en "deseos personales de viajar", sin articulación profesional ni técnica.';
         }
       } else if (sceneNum === 6) {
         container.innerHTML = `
           <span class="scene-badge">ESCENA 6 · TALLER FINAL Y AUTOEVALUACIÓN</span>
           <h2 class="scene-heading">Taller de Borrador y Rúbrica para Blackboard</h2>
           
+          <div class="instructions-box">
+            <strong>📋 Instrucciones:</strong> Puedes redactar un borrador libre en el cuadro de texto. Luego, marca los 5 criterios de la lista de cotejo oficial para autoevaluar tu texto antes del envío final en Blackboard.
+          </div>
+
           <div class="callout callout-info">
-            <strong>Simulador de Párrafo de tu Carta:</strong>
-            <p>Puedes escribir a continuación el borrador de tu párrafo argumentativo para contrastarlo con la pauta de autoevaluación:</p>
-            <textarea id="student-draft" rows="5" style="width: 100%; margin-top: 0.75rem; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.95rem;" placeholder="Escribe aquí tu argumento vinculando a la Fundación de Técnicos Iberoamericanos, el ODS y la cita APA 7..." oninput="updateDraft(this.value)">${customTextDraft}</textarea>
+            <strong>Simulador de Párrafo de tu Carta (Sin calificación automática):</strong>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Para respetar tu autonomía, este borrador no cuenta con corrección semántica automática; tú mismo(a) lo revisarás con la pauta de cotejo.</p>
+            <textarea id="student-draft" rows="5" style="width: 100%; margin-top: 0.75rem; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.95rem;" placeholder="Escribe aquí tu argumento vinculando a la Fundación de Técnicos Iberoamericanos, el ODS 4 y la cita APA 7..." oninput="updateDraft(this.value)">${customTextDraft}</textarea>
           </div>
 
           <h3 style="font-size: 1.15rem; margin: 1.5rem 0 0.75rem 0;">Lista de Cotejo Formativa (Autoevaluación Docente):</h3>
@@ -823,8 +857,8 @@
               <label>
                 <input type="checkbox" onchange="checkRubric()">
                 <span>
-                  <strong>2. Vínculo Explícito con ODS de la ONU:</strong>
-                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Dos argumentos técnicos sustentados en metas u objetivos sostenibles (ej. ODS 11 o ODS 9).</span>
+                  <strong>2. Vínculo Explícito con ODS 4 de la ONU:</strong>
+                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Argumentos técnicos sustentados en competencias técnicas y formación profesional (Metas 4.3 y 4.4).</span>
                 </span>
               </label>
             </div>
@@ -832,8 +866,8 @@
               <label>
                 <input type="checkbox" onchange="checkRubric()">
                 <span>
-                  <strong>3. Cita Institucional Correcta APA 7:</strong>
-                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Autor corporativo completo con sigla entre corchetes [ONU] en primera mención, año o (s.f.) y párrafo. Cero URLs en el texto.</span>
+                  <strong>3. Cita Institucional Correcta APA 7 (Manual IPLACEX, p. 5):</strong>
+                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Autor corporativo con sigla en corchetes [ONU], (s.f.) y número de párrafo. Cero URLs en el texto.</span>
                 </span>
               </label>
             </div>
@@ -842,7 +876,7 @@
                 <input type="checkbox" onchange="checkRubric()">
                 <span>
                   <strong>4. Articulación Fuente-Argumento:</strong>
-                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">La cita no es una 'isla'; fundamenta por qué la formación en Barcelona resuelve una necesidad técnica real.</span>
+                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">La cita fundamenta por qué la formación en Barcelona resuelve una necesidad técnica real.</span>
                 </span>
               </label>
             </div>
@@ -850,8 +884,8 @@
               <label>
                 <input type="checkbox" onchange="checkRubric()">
                 <span>
-                  <strong>5. Referencia Bibliográfica Completa (Manual IPLACEX 2025):</strong>
-                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Autor. (Año). <em>Título en cursiva</em>. Sitio web. URL directa.</span>
+                  <strong>5. Referencia Bibliográfica Completa (Manual IPLACEX, p. 6):</strong>
+                  <br><span style="color: var(--color-text-muted); font-size: 0.85rem; font-weight: normal;">Autor. (s.f.). <em>Título en cursiva</em>. Sitio web. URL activa y limpia.</span>
                 </span>
               </label>
             </div>
@@ -896,7 +930,7 @@
       const hint = document.getElementById('hint-content');
       if (hint) {
         hint.className = hintVisible ? 'hint-box active' : 'hint-box';
-        document.getElementById('btn-hint').innerText = hintVisible ? 'Ocultar Pista' : 'Ver Pista';
+        document.getElementById('btn-hint').innerText = hintVisible ? 'Ocultar Pista' : 'Ver Pista 💡';
       }
     }
 
@@ -925,7 +959,7 @@
         summary.style.background = 'var(--color-success-bg)';
         summary.style.borderColor = 'var(--color-success-border)';
         summary.style.color = 'var(--color-success-text)';
-        summary.innerHTML = '<strong>¡Excelente! Todos los criterios verificados:</strong> Tu argumentación y citación APA 7 están alineadas con la rúbrica del examen final en Blackboard.';
+        summary.innerHTML = '<strong>✓ ¡Excelente! Todos los criterios verificados:</strong> Tu argumentación y citación APA 7 están alineadas con la rúbrica del examen final en Blackboard.';
       } else {
         summary.className = 'callout callout-info';
         summary.innerHTML = `Has verificado <strong>${checkedCount} de 5 criterios</strong>. Perfecciona los aspectos faltantes en tu borrador.`;

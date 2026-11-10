@@ -14,6 +14,7 @@ import { Scene4Reference } from './components/Scene4Reference';
 import { Scene5Comparison } from './components/Scene5Comparison';
 import { Scene6Integrator } from './components/Scene6Integrator';
 import { BlackboardGuideModal } from './components/BlackboardGuideModal';
+import { INSTITUTIONAL_LINKS } from './data/educationalContent';
 
 export default function App() {
   const [currentScene, setCurrentScene] = useState<SceneId>(1);
@@ -48,7 +49,7 @@ export default function App() {
     }
   };
 
-  // Keyboard navigation across scenes (Arrow keys when not typing)
+  // Keyboard navigation across scenes (Arrow keys when not typing in inputs)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -71,7 +72,7 @@ export default function App() {
       {/* Skip to main content link for screen reader and keyboard accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-700 focus:text-white focus:font-bold focus:rounded-lg focus:shadow-lg focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#15284f] focus:text-white focus:font-bold focus:rounded-lg focus:shadow-lg focus:outline-none"
       >
         Saltar al contenido didáctico principal
       </a>
@@ -86,18 +87,20 @@ export default function App() {
         onOpenBlackboardGuide={() => setIsBlackboardModalOpen(true)}
       />
 
-      {/* Institutional Breadcrumb Bar */}
-      <div className="bg-indigo-900 text-indigo-100 text-xs py-2 px-4 border-b border-indigo-950">
+      {/* Institutional Breadcrumb Bar with Iplacex palette */}
+      <div className="bg-[#15284f] text-slate-200 text-xs py-2 px-4 border-b border-blue-950">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-1">
           <div className="flex items-center gap-2">
             <span className="font-bold text-white tracking-wide">IPLACEX</span>
-            <span aria-hidden="true" className="text-indigo-400">·</span>
-            <span>Formación Transversal: Comunicación y Redacción</span>
-            <span aria-hidden="true" className="text-indigo-400">·</span>
-            <span>Plataforma Blackboard Learn</span>
+            <span aria-hidden="true" className="text-sky-400">·</span>
+            <span>Subdirección de Bibliotecas & Formación Transversal</span>
+            <span aria-hidden="true" className="text-sky-400">·</span>
+            <span className="text-sky-200">Comunicación y Redacción (Blackboard)</span>
           </div>
-          <div className="text-indigo-300">
-            Manual de Bibliotecas IPLACEX (2025) · Normas APA 7ma Edición
+          <div className="flex items-center gap-3 text-sky-200">
+            <span>Manual Bibliotecas (2025)</span>
+            <span aria-hidden="true" className="text-slate-400">·</span>
+            <span>APA 7.ª edición</span>
           </div>
         </div>
       </div>
@@ -119,7 +122,7 @@ export default function App() {
         />
 
         {/* Dynamic Scene Card */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-xs">
           {currentScene === 1 && (
             <Scene1Orientation
               onContinue={() => {
@@ -170,43 +173,44 @@ export default function App() {
           )}
         </div>
 
-        {/* Standalone files persistent banner */}
-        <section className="mt-8 bg-slate-100 border border-slate-300/70 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+        {/* Persistent Resources Banner */}
+        <section className="mt-8 bg-sky-50/70 border border-sky-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
           <div className="flex items-center gap-3">
             <span className="text-xl">📁</span>
             <div>
-              <strong className="text-slate-900 block font-semibold">
-                ¿Necesitas los archivos HTML para incrustar en el aula virtual de Blackboard?
+              <strong className="text-[#15284f] block font-semibold">
+                Fuentes oficiales y archivos para el aula virtual de Blackboard
               </strong>
               <p className="text-slate-600 text-xs">
-                Disponibles como archivos autocontenidos sin bibliotecas externas: <code>de_la_fuente_al_argumento_v1.html</code> y <code>de_la_fuente_al_argumento_v2.html</code>.
+                Accede al <a href={INSTITUTIONAL_LINKS.iplacexManualPdf} target="_blank" rel="noopener noreferrer" className="text-sky-700 underline font-semibold">Manual de Bibliotecas IPLACEX (PDF)</a>, al portal de <a href={INSTITUTIONAL_LINKS.ods4Chile} target="_blank" rel="noopener noreferrer" className="text-sky-700 underline font-semibold">Naciones Unidas ODS 4</a> o descarga los archivos HTML autocontenidos (v1 y v2).
               </p>
             </div>
           </div>
           <button
             onClick={() => setIsBlackboardModalOpen(true)}
-            className="px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white font-semibold rounded-lg text-xs whitespace-nowrap shrink-0 transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-4 py-2 bg-[#15284f] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg text-xs whitespace-nowrap shrink-0 transition-colors focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
           >
-            Ver Guía y Descargar HTML →
+            Ver Fuentes & Blackboard →
           </button>
         </section>
       </main>
 
-      {/* Accessible Footer */}
+      {/* Accessible Footer with IPLACEX accreditation note */}
       <footer className="bg-white border-t border-slate-200 mt-12 py-8 px-4 sm:px-6 text-xs text-slate-500">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <p className="font-semibold text-slate-700">
-              «De la fuente al argumento: APA 7 y ODS» · Objeto de Aprendizaje
+          <div className="space-y-1">
+            <p className="font-semibold text-slate-700 flex items-center gap-2 justify-center sm:justify-start">
+              <span className="font-bold text-[#15284f]">IPLACEX</span>
+              <span>· Instituto Profesional Acreditado Nivel Avanzado (CNA-Chile)</span>
             </p>
-            <p className="mt-0.5">
-              Diseñado para el Examen Final de Formación Transversal Comunicación y Redacción · IPLACEX (2025).
+            <p className="text-[11px] text-slate-500">
+              «De la fuente al argumento: APA 7 y ODS 4» · Subdirección de Bibliotecas & Formación Transversal.
             </p>
           </div>
-          <div className="text-slate-600 sm:text-right">
+          <div className="text-slate-600 sm:text-right space-y-0.5">
             <p>Destinatario del caso: <strong>Fundación de Técnicos Iberoamericanos</strong> (Barcelona)</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">
-              Accesibilidad validada WCAG AA · Navegación por teclado disponible
+            <p className="text-[11px] text-slate-400">
+              Accesibilidad validada WCAG AA · Controles 100% navegables por teclado
             </p>
           </div>
         </div>

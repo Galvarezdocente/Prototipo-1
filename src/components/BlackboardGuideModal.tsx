@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { INSTITUTIONAL_LINKS } from '../data/educationalContent';
 
 interface BlackboardGuideModalProps {
   isOpen: boolean;
@@ -15,9 +16,9 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
 
   const iframeSnippet = `<iframe 
   src="de_la_fuente_al_argumento_v2.html" 
-  title="Recurso Educativo: De la fuente al argumento (APA 7 y ODS)" 
+  title="Recurso Educativo: De la fuente al argumento (APA 7 y ODS 4 - IPLACEX)" 
   width="100%" 
-  height="780" 
+  height="800" 
   style="border: 1px solid #cbd5e1; border-radius: 8px; max-width: 100%;" 
   allow="fullscreen"
 ></iframe>`;
@@ -39,32 +40,71 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
         {/* Header */}
         <div className="flex items-start justify-between border-b border-slate-200 pb-4">
           <div>
-            <span className="text-xs font-bold uppercase text-indigo-700 tracking-wider">
-              Guía Docente y Archivos Autocontenidos
+            <span className="text-xs font-bold uppercase text-[#00a3e0] tracking-wider">
+              IPLACEX · Bibliotecas & Formación Transversal
             </span>
-            <h2 id="blackboard-guide-title" className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
-              Integración y Prueba Real en Blackboard Learn
+            <h2 id="blackboard-guide-title" className="text-xl sm:text-2xl font-bold text-[#15284f] mt-0.5">
+              Fuentes Oficiales, Manual IPLACEX y Montaje en Blackboard
             </h2>
             <p className="text-xs sm:text-sm text-slate-600">
-              Formación Transversal Comunicación y Redacción · Sistema de Bibliotecas IPLACEX (2025)
+              Comunicación y Redacción · Examen Final (Beca Barcelona · ODS 4)
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-700 rounded-lg text-lg font-bold leading-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="p-2 text-slate-400 hover:text-slate-700 rounded-lg text-lg font-bold leading-none focus-visible:ring-2 focus-visible:ring-[#15284f] focus-visible:outline-none"
             aria-label="Cerrar ventana"
           >
             ✕
           </button>
         </div>
 
-        {/* Standalone files download / view zone */}
+        {/* Official Sources Bar */}
+        <div className="bg-sky-50 border border-sky-200 rounded-xl p-4 space-y-2">
+          <h3 className="font-bold text-sm text-[#15284f] flex items-center gap-2">
+            <span>🔗</span> Enlaces Oficiales Funcionales Verificados
+          </h3>
+          <p className="text-xs text-slate-700">
+            Puedes consultar directamente la documentación de respaldo que sustenta cada regla de este recurso:
+          </p>
+          <div className="grid sm:grid-cols-3 gap-2.5 pt-1 text-xs">
+            <a
+              href={INSTITUTIONAL_LINKS.iplacexManualPdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-white rounded-lg border border-sky-200 hover:border-[#15284f] transition-all flex flex-col justify-between"
+            >
+              <strong className="text-[#15284f] block font-semibold">Manual Bibliotecas IPLACEX</strong>
+              <span className="text-[11px] text-slate-500 mt-1">Paula Vega, Febrero 2025 (PDF) ↗</span>
+            </a>
+            <a
+              href={INSTITUTIONAL_LINKS.ods4Chile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-white rounded-lg border border-sky-200 hover:border-[#15284f] transition-all flex flex-col justify-between"
+            >
+              <strong className="text-[#15284f] block font-semibold">Naciones Unidas · ODS 4</strong>
+              <span className="text-[11px] text-slate-500 mt-1">chile.un.org (Metas 4.3 y 4.4) ↗</span>
+            </a>
+            <a
+              href={INSTITUTIONAL_LINKS.apaStyleExamples}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-white rounded-lg border border-sky-200 hover:border-[#15284f] transition-all flex flex-col justify-between"
+            >
+              <strong className="text-[#15284f] block font-semibold">APA Style Oficial</strong>
+              <span className="text-[11px] text-slate-500 mt-1">apastyle.apa.org (7.ª edición) ↗</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Standalone Files Download */}
         <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3">
-          <h3 className="font-bold text-sm sm:text-base text-slate-900 flex items-center gap-2">
-            <span>📦</span> Archivos HTML Autocontenidos (Sin dependencias externas)
+          <h3 className="font-bold text-sm sm:text-base text-[#15284f] flex items-center gap-2">
+            <span>📦</span> Archivos HTML Autocontenidos para Blackboard (Sin dependencias externas)
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Estos archivos son 100% autónomos (contienen todo el HTML, CSS y JavaScript internamente). Funcionan de inmediato sin requerir conexión a internet ni bibliotecas externas:
+            Estos archivos son 100% autónomos (estilos CSS y JavaScript incluidos internamente sin librerías externas ni CDNs). Puedes descargarlos o visualizarlos directamente:
           </p>
 
           <div className="grid sm:grid-cols-2 gap-3 pt-1">
@@ -74,7 +114,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
                   Versión 1: «de_la_fuente_al_argumento_v1.html»
                 </strong>
                 <p className="text-xs text-slate-500 mt-1">
-                  Estructura lineal, peso ultraligero (~25 KB). Ideal para incrustar directamente o subir como archivo descargable en Blackboard.
+                  Estructura lineal, peso ultraligero (~25 KB). Ideal para incrustar en un marco responsivo o como enlace web directo en Blackboard.
                 </p>
               </div>
               <div className="flex gap-2 pt-2">
@@ -84,12 +124,12 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold rounded-lg transition-colors"
                 >
-                  Abrir en pestaña ↗
+                  Abrir v1 ↗
                 </a>
                 <a
                   href="/de_la_fuente_al_argumento_v1.html"
                   download="de_la_fuente_al_argumento_v1.html"
-                  className="px-3 py-1.5 bg-indigo-700 hover:bg-indigo-800 text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="px-3 py-1.5 bg-[#15284f] hover:bg-[#1e3a8a] text-white text-xs font-semibold rounded-lg transition-colors"
                 >
                   Descargar v1 ⬇
                 </a>
@@ -102,7 +142,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
                   Versión 2: «de_la_fuente_al_argumento_v2.html» (Avanzada)
                 </strong>
                 <p className="text-xs text-slate-500 mt-1">
-                  Incluye barra de herramientas de accesibilidad (zoom de letra, alto contraste WCAG AA, glosario emergente y modo impresión).
+                  Incluye barra superior con selector de tamaño de letra (A-/A+), modo alto contraste para baja visión, glosario modal y modo impresión.
                 </p>
               </div>
               <div className="flex gap-2 pt-2">
@@ -112,12 +152,12 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold rounded-lg transition-colors"
                 >
-                  Abrir en pestaña ↗
+                  Abrir v2 ↗
                 </a>
                 <a
                   href="/de_la_fuente_al_argumento_v2.html"
                   download="de_la_fuente_al_argumento_v2.html"
-                  className="px-3 py-1.5 bg-indigo-700 hover:bg-indigo-800 text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="px-3 py-1.5 bg-[#15284f] hover:bg-[#1e3a8a] text-white text-xs font-semibold rounded-lg transition-colors"
                 >
                   Descargar v2 ⬇
                 </a>
@@ -134,7 +174,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
 
           <div className="grid sm:grid-cols-2 gap-4 text-xs">
             <div className="p-3.5 rounded-xl border border-slate-200 bg-white space-y-2">
-              <strong className="block text-indigo-950 font-bold">Opción A: Blackboard Ultra (Recomendada)</strong>
+              <strong className="block text-[#15284f] font-bold">Opción A: Blackboard Ultra (Recomendada)</strong>
               <ol className="list-decimal pl-4 space-y-1 text-slate-600">
                 <li>Ingresa a la sección de contenidos del curso (Semana correspondiente al Examen).</li>
                 <li>Haz clic en el signo <code>+</code> y selecciona <strong>Cargar desde dispositivo</strong> o <strong>Crear Documento</strong>.</li>
@@ -144,7 +184,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
             </div>
 
             <div className="p-3.5 rounded-xl border border-slate-200 bg-white space-y-2">
-              <strong className="block text-indigo-950 font-bold">Opción B: Incrustar mediante iframe (HTML)</strong>
+              <strong className="block text-[#15284f] font-bold">Opción B: Incrustar mediante iframe (HTML)</strong>
               <ol className="list-decimal pl-4 space-y-1 text-slate-600">
                 <li>Al crear un Documento en Blackboard Ultra, añade un bloque de tipo <strong>HTML</strong>.</li>
                 <li>Pega el código iframe proporcionado a continuación.</li>
@@ -176,7 +216,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
             <span>🔍</span> Protocolo Obligatorio de Prueba Real en Blackboard
           </h3>
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Para garantizar que ningún estudiante experimente barreras de acceso, no declares la compatibilidad como 'verificada' hasta completar esta lista de comprobación:
+            No declares la compatibilidad como 'verificada' hasta completar esta lista de comprobación:
           </p>
 
           <ul className="text-xs sm:text-sm space-y-1.5 list-disc pl-5 text-slate-800">
@@ -190,7 +230,7 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
               <strong>Paso 3 (Dispositivos móviles):</strong> Abre el curso desde un teléfono móvil o redimensiona la ventana a 360px de ancho para comprobar que no exista desbordamiento horizontal.
             </li>
             <li>
-              <strong>Paso 4 (Verificación de Metadatos ONU):</strong> Corrobora los marcadores rotulados <span className="bg-amber-200 text-amber-900 px-1 py-0.2 rounded font-semibold text-xs">[Pendiente de verificar por docente]</span> con la página institucional de la ONU que hayas indicado en las instrucciones de la asignatura.
+              <strong>Paso 4 (Verificación de Metadatos ONU):</strong> Confirma que los enlaces funcionales a las Naciones Unidas (ODS 4) y al Manual de Bibliotecas IPLACEX operen fluidamente.
             </li>
           </ul>
         </div>
@@ -199,9 +239,9 @@ export const BlackboardGuideModal: React.FC<BlackboardGuideModalProps> = ({
         <div className="pt-2 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-indigo-700 hover:bg-indigo-800 text-white font-semibold rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:outline-none"
+            className="px-5 py-2 bg-[#15284f] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg text-sm transition-colors focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:outline-none"
           >
-            Entendido y Cerrar Guía
+            Entendido y Cerrar Panel
           </button>
         </div>
       </div>
